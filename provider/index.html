@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="FlowchartApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+  <script src="angular.js"></script>
+</head>
+<body>
+
+  <div id="simple" ng-controller="FlowchartController">
+    <h5>Nodes</h5>
+    <ul>
+      <li ng-repeat="node in flowchart.nodes track by $index">{{node}}</li>
+    </ul>
+    <h5>Decisions</h5>
+    <ul>
+      <li ng-repeat="decision in flowchart.decisions track by $index">{{decision}}</li>
+    </ul>
+    <h5>Connections</h5>
+    <ul>
+      <li ng-repeat="connection in flowchart.connections track by $index">{{connection[0]}} : {{connection[1]}}</li>
+    </ul>
+    <input ng-init="new='test'" ng-model="new" >
+    <button ng-click="addNode(new, 'status');">ADD NODE</button>
+  </div>
+
+</body>
+</html>
