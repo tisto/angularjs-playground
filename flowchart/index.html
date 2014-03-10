@@ -7,12 +7,20 @@
 <body>
 
   <div id="simple" ng-controller="FlowchartController">
-    <p>{{flowchart}}</p>
+    <h5>Nodes</h5>
     <ul>
       <li ng-repeat="node in flowchart.nodes track by $index">{{node}}</li>
     </ul>
+    <h5>Decisions</h5>
+    <ul>
+      <li ng-repeat="decision in flowchart.decisions track by $index">{{decision}}</li>
+    </ul>
+    <h5>Connections</h5>
+    <ul>
+      <li ng-repeat="connection in flowchart.connections track by $index">{{connection[0]}} : {{connection[1]}}</li>
+    </ul>
     <input ng-init="new='test'" ng-model="new" >
-    <button ng-click="addNode(new);">ADD NODE</button>
+    <button ng-click="addNode(new, 'status');">ADD NODE</button>
   </div>
 
 </body>
