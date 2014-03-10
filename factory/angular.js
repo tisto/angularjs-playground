@@ -4,7 +4,7 @@ flowchartModule.factory('flowchart',
   ['$window', function(win) {
     'use strict';
     var flowchart = {
-      'nodes': ['foo']
+      'nodes': []
     };
     flowchart.addNode = function(node) {
       flowchart.nodes.push(node);

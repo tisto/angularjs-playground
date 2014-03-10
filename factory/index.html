@@ -9,10 +9,10 @@
   <div id="simple" ng-controller="FlowchartController">
     <p>{{flowchart}}</p>
     <ul>
-      <li ng-repeat="node in flowchart.nodes">{{node}}</li>
+      <li ng-repeat="node in flowchart.nodes track by $index">{{node}}</li>
     </ul>
-    <input ng-init="node='test'" ng-model="node" >
-    <button ng-click="addNode(node);">ADD NODE</button>
+    <input ng-init="new='test'" ng-model="new" >
+    <button ng-click="addNode(new);">ADD NODE</button>
   </div>
 
 </body>
