@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="FlowchartApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+  <script src="angular.js"></script>
+</head>
+<body>
+
+  <div id="simple" ng-controller="FlowchartController">
+    <p>{{flowchart}}</p>
+    <ul>
+      <li ng-repeat="node in flowchart.nodes track by $index">{{node}}</li>
+    </ul>
+    <input ng-init="new='test'" ng-model="new" >
+    <button ng-click="addNode(new);">ADD NODE</button>
+  </div>
+
+</body>
+</html>
