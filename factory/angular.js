@@ -1,24 +1,24 @@
-var serviceModule = angular.module('myApp', []);
+var flowchartModule = angular.module('FlowchartApp', []);
 
-serviceModule.factory('notify',
+flowchartModule.factory('flowchart',
   ['$window', function(win) {
     'use strict';
-    var msgs = [];
-    return function(msg) {
-      msgs.push(msg);
-      if (msgs.length == 3) {
-        win.alert(msgs.join('\n'));
-        msgs = [];
-      }
+    var flowchart = {
+      'nodes': ['foo']
     };
+    flowchart.addNode = function(node) {
+      flowchart.nodes.push(node);
+    };
+    return flowchart;
   }]
 );
 
-serviceModule.controller('MyController',
-  ['$scope','notify', function ($scope, notify) {
+flowchartModule.controller('FlowchartController',
+  ['$scope','flowchart', function ($scope, flowchart) {
     'use strict';
-    $scope.callNotify = function(msg) {
-      notify(msg);
+    $scope.flowchart = flowchart;
+    $scope.addNode = function(node) {
+      flowchart.addNode(node);
     };
   }]
 );
