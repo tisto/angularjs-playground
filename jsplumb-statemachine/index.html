@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>JSPlumb minimal example</title>
+  <link rel="stylesheet" href="demo.css">
+  <style type="text/css">
+    #container0, #container1 {
+        float: left;
+        height: 100px;
+        width: 100px;
+        border: 1px solid black;
+        margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo statemachine-demo" id="statemachine-demo">
+    <div class="w" id="opened">BEGIN<div class="ep"></div></div>
+    <div class="w" id="phone1">PHONE INTERVIEW 1<div class="ep"></div></div>
+    <div class="w" id="phone2">PHONE INTERVIEW 2<div class="ep"></div></div>
+    <div class="w" id="inperson">IN PERSON<div class="ep"></div></div>
+    <div class="w" id="rejected">REJECTED<div class="ep"></div></div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jsPlumb/1.4.1/jquery.jsPlumb-1.4.1-all-min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://jsplumbtoolkit.com/lib/jquery.ui.touch-punch.min.js"></script>
+  <script src="demo-jquery.js"></script>
+  <script src="connectors-statemachine.js"></script>
+  <script type="text/javascript">
+    jsPlumb.bind("ready", function() {
+      var e0 = jsPlumb.addEndpoint("container0"),
+      e1 = jsPlumb.addEndpoint("container1");
+
+      jsPlumb.connect({ source:e0, target:e1 });
+    });
+  </script>
+</body>
+</html>
