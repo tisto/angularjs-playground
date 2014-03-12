@@ -88,6 +88,9 @@ myModule.controller('MyController',
       _addEndpoints('container0');
       _addEndpoints('container1');
       _addEndpoints('container2');
+      instance.connect({uuids:["container0RightMiddle", "container1LeftMiddle"], editable:true});
+      instance.connect({uuids:["container1BottomCenter", "container2RightMiddle"], editable:true});
+      instance.connect({uuids:["container2LeftMiddle", "container0BottomCenter"], editable:true});
     });
   }
 );
