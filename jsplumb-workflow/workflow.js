@@ -69,33 +69,30 @@ myModule.run(function(flowchart) {
     'nodes': [
       {
         'id': 0,
-        'title': 'Public',
-        'text': 'R0-Resektion',
-        'type': 'status',
+        'title': 'Published',
+        'text': '',
         'top': 200,
         'left': 10,
       },
       {
         'id': 1,
         'title': 'Private',
-        'text': 'UICC-Stad. I/II ohne RF *',
-        'type': 'status',
+        'text': '',
         'top': 0,
         'left': 500,
       },
       {
         'id': 2,
         'title': 'Pending',
-        'text': 'UICC-Stad. I/II mit RF *',
-        'type': 'status',
+        'text': 'Pending review',
         'top': 340,
         'left': 420,
       },
     ],
     'connections': [
-      ['node0', 'node1'],
-      ['node1', 'node2'],
-      ['node1', 'node0'],
+      {'from': 'node0', 'to': 'node1', 'label': 'retract'},
+      {'from': 'node1', 'to': 'node2', 'label': 'submit for publication'},
+      {'from': 'node1', 'to': 'node0', 'label': 'publish'},
     ],
   });
 });
@@ -168,7 +165,13 @@ myModule.controller('MyController',
         });
 
         $.each($scope.flowchart.connections, function(index, value) {
-          instance.connect({ source: value[0], target: value[1] });
+          instance.connect({
+            source: value.from,
+            target: value.to,
+            overlays:[
+              [ "Label", {label: value.label, id:"label"}]
+            ]
+          });
         });
         instance.draggable($('.node'), { grid: [20, 20] });
       });
