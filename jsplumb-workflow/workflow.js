@@ -24,7 +24,15 @@ myModule.run(function(flowchart) {
           foldback: 0.8
         }
       ],
-      [ 'Label', { label:'FOO', id:'label', cssClass:'aLabel' }]
+      [
+        'Label',
+        {
+          label: 'Click to edit',
+          id: 'label',
+          cssClass:'aLabel',
+          location: 0.7,
+        }
+      ]
     ],
     Container: 'workflow'
   });
@@ -37,13 +45,13 @@ myModule.run(function(flowchart) {
         'title': 'Published',
         'text': '',
         'top': 200,
-        'left': 10,
+        'left': 20,
       },
       {
         'id': 1,
         'title': 'Private',
         'text': '',
-        'top': 0,
+        'top': 20,
         'left': 500,
       },
       {
@@ -70,7 +78,7 @@ myModule.controller('MyController',
 
     jsPlumb.ready(function() {
 
-      var windows = jsPlumb.getSelector('#workflow .w');
+      var windows = jsPlumb.getSelector('#workflow .node');
 
       // initialise draggable elements.
       instance.draggable(windows);
@@ -99,14 +107,14 @@ myModule.controller('MyController',
         // would recommend you do. Note also here that we use the 'filter' option to tell jsPlumb
         // which parts of the element should actually respond to a drag start.
         instance.makeSource(windows, {
-          filter:'.ep',        // only supported by jquery
-          anchor:'Continuous',
+          filter: '.ep',        // only supported by jquery
+          anchor: 'Continuous',
           connector:[ 'StateMachine', { curviness:30 } ],
           connectorStyle: {
             strokeStyle: '#5c96bc',
             lineWidth: 2,
             outlineColor: 'transparent',
-            outlineWidth:4
+            outlineWidth: 4
           },
           maxConnections: 5,
           onMaxConnections:function(info, e) {
@@ -124,11 +132,9 @@ myModule.controller('MyController',
         $.each($scope.flowchart.connections, function(index, value) {
           instance.connect({
             source: value.from,
-            target: value.to,
-            label: value.label
-          });
+            target: value.to
+          }).getOverlay("label").setLabel(value.label);
         });
-
         // make all nodes draggable
         instance.draggable($('.node'), { grid: [20, 20] });
       });
