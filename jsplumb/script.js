@@ -61,15 +61,17 @@ myModule.run(function(flowchart) {
     ],
     Container:'flowchart'
   });
-  flowchart.set(instance);
+  flowchart.set({
+    'id': 1,
+    'instance': instance
+  });
 });
 
 myModule.controller('MyController',
   function($scope, flowchart) {
     'use strict';
-    $scope.flowchart = flowchart;
-    var instance = $scope.flowchart.get();
-
+    $scope.flowchart = flowchart.get();
+    var instance = $scope.flowchart.instance;
     var _addEndpoints = function(toId) {
       var anchors = ['TopCenter', 'BottomCenter', 'LeftMiddle', 'RightMiddle'];
       for (var i = 0; i < anchors.length; i++) {
