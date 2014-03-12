@@ -93,9 +93,9 @@ myModule.run(function(flowchart) {
       },
     ],
     'connections': [
-      ['container0', 'container1'],
-      ['container1', 'container2'],
-      ['container1', 'container0'],
+      ['node0', 'node1'],
+      ['node1', 'node2'],
+      ['node1', 'node0'],
     ],
   });
 });

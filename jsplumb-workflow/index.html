@@ -7,7 +7,7 @@
 </head>
 <body ng-controller="MyController">
   <div id="workflow" class="demo statemachine-demo">
-    <div id="container{{node.id}}"
+    <div id="node{{node.id}}"
          class="node w"
          style="top: {{node.top}}px; left: {{node.left}}px"
          ng-repeat="node in flowchart.nodes">
