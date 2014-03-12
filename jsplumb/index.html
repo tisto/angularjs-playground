@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8" />
   <title>JSPlumb minimal example</title>
@@ -13,7 +13,7 @@
     }
   </style>
 </head>
-<body>
+<body ng-controller="MyController">
   <div id="container0"></div>
   <div id="container1"></div>
 
@@ -23,13 +23,6 @@
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jsPlumb/1.4.1/jquery.jsPlumb-1.4.1-all-min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="http://jsplumbtoolkit.com/lib/jquery.ui.touch-punch.min.js"></script>
-  <script type="text/javascript">
-    jsPlumb.bind("ready", function() {
-      var e0 = jsPlumb.addEndpoint("container0"),
-      e1 = jsPlumb.addEndpoint("container1");
-
-      jsPlumb.connect({ source:e0, target:e1 });
-    });
- </script>
+  <script src="script.js"></script>
 </body>
 </html>
