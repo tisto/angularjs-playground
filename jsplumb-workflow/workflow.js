@@ -1,10 +1,10 @@
 var myModule = angular.module('myApp', []);
 
 var flowchartEndpointOptions = {
-  endpoint:'Dot',
-  isSource:true,
-  isTarget:true,
-  maxConnections:-1,
+  endpoint: 'Dot',
+  isSource: true,
+  isTarget: true,
+  maxConnections: -1,
   paintStyle:{
     strokeStyle: '#7AB02C',
     fillStyle: '#7AB02C',
@@ -51,13 +51,15 @@ myModule.run(function(flowchart) {
     Endpoint : ['Dot', {radius:2}],
     HoverPaintStyle : {strokeStyle:'#1e8151', lineWidth:2 },
     ConnectionOverlays : [
-      [ 'Arrow', {
-        location:1,
-        id:'arrow',
-                  length:14,
-                  foldback:0.8
-      } ],
-              [ 'Label', { label:'FOO', id:'label', cssClass:'aLabel' }]
+      [
+        'Arrow', {
+          location: 1,
+          id: 'arrow',
+          length: 14,
+          foldback: 0.8
+        }
+      ],
+      [ 'Label', { label:'FOO', id:'label', cssClass:'aLabel' }]
     ],
     Container: 'workflow'
   });
