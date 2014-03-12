@@ -168,9 +168,7 @@ myModule.controller('MyController',
           instance.connect({
             source: value.from,
             target: value.to,
-            overlays:[
-              [ "Label", {label: value.label, id:"label"}]
-            ]
+            label: value.label
           });
         });
         instance.draggable($('.node'), { grid: [20, 20] });
