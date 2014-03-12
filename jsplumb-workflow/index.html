@@ -1,19 +1,16 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8" />
   <title>JSPlumb Workflow</title>
   <link rel="stylesheet" href="workflow.css">
-  <style type="text/css">
-  </style>
 </head>
-<body>
-  <div class="demo statemachine-demo" id="statemachine-demo">
-    <div class="w" id="opened">BEGIN<div class="ep"></div></div>
-    <div class="w" id="phone1">PHONE INTERVIEW 1<div class="ep"></div></div>
-    <div class="w" id="phone2">PHONE INTERVIEW 2<div class="ep"></div></div>
-    <div class="w" id="inperson">IN PERSON<div class="ep"></div></div>
-    <div class="w" id="rejected">REJECTED<div class="ep"></div></div>
+<body ng-controller="MyController">
+  <div id="workflow" class="demo statemachine-demo">
+    <div id="container{{node.id}}"
+         class="node w"
+         style="top: {{node.top}}px; left: {{node.left}}px"
+         ng-repeat="node in flowchart.nodes">{{node.title}}</div>
   </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
