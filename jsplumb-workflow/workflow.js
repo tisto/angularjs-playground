@@ -102,8 +102,13 @@ myModule.controller('MyController',
           filter:'.ep',        // only supported by jquery
           anchor:'Continuous',
           connector:[ 'StateMachine', { curviness:30 } ],
-          connectorStyle:{ strokeStyle:'#5c96bc', lineWidth:2, outlineColor:'transparent', outlineWidth:4 },
-          maxConnections:5,
+          connectorStyle: {
+            strokeStyle: '#5c96bc',
+            lineWidth: 2,
+            outlineColor: 'transparent',
+            outlineWidth:4
+          },
+          maxConnections: 5,
           onMaxConnections:function(info, e) {
             alert('Maximum connections (' + info.maxConnections + ') reached');
           }
@@ -115,6 +120,7 @@ myModule.controller('MyController',
           anchor:'Continuous'
         });
 
+        // read connections from flowchart and connect them
         $.each($scope.flowchart.connections, function(index, value) {
           instance.connect({
             source: value.from,
@@ -122,12 +128,10 @@ myModule.controller('MyController',
             label: value.label
           });
         });
+
+        // make all nodes draggable
         instance.draggable($('.node'), { grid: [20, 20] });
       });
     });
   }
 );
-
-
-
-
