@@ -35,6 +35,9 @@ myModule.controller('MyController',
     var e0 = instance.addEndpoint('container0');
     var e1 = instance.addEndpoint('container1');
     instance.connect({ source:e0, target:e1 });
+    instance.doWhileSuspended(function() {
+      instance.draggable(jsPlumb.getSelector("#flowchart div"), { grid: [20, 20] });
+    });
   }
 );
 
