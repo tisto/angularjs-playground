@@ -133,7 +133,7 @@ myModule.controller('MyController',
           instance.connect({
             source: value.from,
             target: value.to
-          }).getOverlay("label").setLabel(value.label);
+          }).getOverlay('label').setLabel(value.label);
         });
         // make all nodes draggable
         instance.draggable($('.node'), { grid: [20, 20] });
