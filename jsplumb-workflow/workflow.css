@@ -2,7 +2,7 @@
 	margin-top:5em;
 }
 
-.w { 	
+.w {
 	padding:16px;
 	position:absolute;
 	border: 1px solid black;
@@ -22,7 +22,7 @@
 	font-size:11px;
 	-webkit-transition:background-color 0.25s ease-in;
 	-moz-transition:background-color 0.25s ease-in;
-	transition:background-color 0.25s ease-in;	
+	transition:background-color 0.25s ease-in;
 }
 
 .w:hover {
@@ -45,7 +45,7 @@
 .aLabel {
 	background-color:white;
 	opacity:0.8;
-	padding:0.3em;				
+	padding:0.3em;
 	border-radius:0.5em;
 	border:1px solid #346789;
 	cursor:pointer;
@@ -73,28 +73,6 @@
 	z-index:3;
 }
 
-#opened {
-	left:10em;
-	top:5em;
-}
-
-#phone1 {
-	left:35em;
-	top:12em;
-	width:7em;
-}
-#inperson {
-	left:12em;
-	top:23em;
-}
-#phone2 {
-	left:28em;
-	top:24em;
-}
-#rejected {
-	left:10em;
-	top:35em;
-}
 .dragHover { border:2px solid orange; }
 
 path { cursor:pointer; }

@@ -48,18 +48,18 @@ myModule.factory('flowchart', function() {
 myModule.run(function(flowchart) {
   'use strict';
   var instance = jsPlumb.getInstance({
-    Endpoint : ["Dot", {radius:2}],
-    HoverPaintStyle : {strokeStyle:"#1e8151", lineWidth:2 },
+    Endpoint : ['Dot', {radius:2}],
+    HoverPaintStyle : {strokeStyle:'#1e8151', lineWidth:2 },
     ConnectionOverlays : [
-      [ "Arrow", {
+      [ 'Arrow', {
         location:1,
-        id:"arrow",
+        id:'arrow',
                   length:14,
                   foldback:0.8
       } ],
-              [ "Label", { label:"FOO", id:"label", cssClass:"aLabel" }]
+              [ 'Label', { label:'FOO', id:'label', cssClass:'aLabel' }]
     ],
-    Container: "workflow"
+    Container: 'workflow'
   });
   flowchart.set({
     'id': 1,
@@ -115,15 +115,15 @@ myModule.controller('MyController',
 
     jsPlumb.ready(function() {
 
-      var windows = jsPlumb.getSelector("#workflow .w");
+      var windows = jsPlumb.getSelector('#workflow .w');
 
           // initialise draggable elements.
       instance.draggable(windows);
 
           // bind a click listener to each connection; the connection is deleted. you could of course
-      // just do this: jsPlumb.bind("click", jsPlumb.detach), but I wanted to make it clear what was
+      // just do this: jsPlumb.bind('click', jsPlumb.detach), but I wanted to make it clear what was
       // happening.
-      instance.bind("click", function(c) {
+      instance.bind('click', function(c) {
         instance.detach(c);
       });
 
@@ -131,39 +131,39 @@ myModule.controller('MyController',
       // just the new connection - see the documentation for a full list of what is included in 'info'.
       // this listener sets the connection's internal
       // id as the label overlay's text.
-      instance.bind("connection", function(info) {
-        info.connection.getOverlay("label").setLabel(info.connection.id);
+      instance.bind('connection', function(info) {
+        info.connection.getOverlay('label').setLabel(info.connection.id);
       });
 
       instance.doWhileSuspended(function() {
 
-        // make each ".ep" div a source and give it some parameters to work with.  here we tell it
+        // make each '.ep' div a source and give it some parameters to work with.  here we tell it
         // to use a Continuous anchor and the StateMachine connectors, and also we give it the
         // connector's paint style.  note that in this demo the strokeStyle is dynamically generated,
         // which prevents us from just setting a jsPlumb.Defaults.PaintStyle.  but that is what i
         // would recommend you do. Note also here that we use the 'filter' option to tell jsPlumb
         // which parts of the element should actually respond to a drag start.
         instance.makeSource(windows, {
-          filter:".ep",        // only supported by jquery
-          anchor:"Continuous",
-          connector:[ "StateMachine", { curviness:20 } ],
-          connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:2, outlineColor:"transparent", outlineWidth:4 },
+          filter:'.ep',        // only supported by jquery
+          anchor:'Continuous',
+          connector:[ 'StateMachine', { curviness:20 } ],
+          connectorStyle:{ strokeStyle:'#5c96bc', lineWidth:2, outlineColor:'transparent', outlineWidth:4 },
           maxConnections:5,
           onMaxConnections:function(info, e) {
-            alert("Maximum connections (" + info.maxConnections + ") reached");
+            alert('Maximum connections (' + info.maxConnections + ') reached');
           }
         });
 
         // initialise all '.w' elements as connection targets.
         instance.makeTarget(windows, {
-          dropOptions:{ hoverClass:"dragHover" },
-          anchor:"Continuous"
+          dropOptions:{ hoverClass:'dragHover' },
+          anchor:'Continuous'
         });
 
         // and finally, make a couple of connections
-        instance.connect({ source:"container0", target:"container1" });
-        instance.connect({ source:"container1", target:"container2" });
-        instance.connect({ source:"container1", target:"container0" });
+        instance.connect({ source:'container0', target:'container1' });
+        instance.connect({ source:'container1', target:'container2' });
+        instance.connect({ source:'container1', target:'container0' });
         instance.draggable($('.node'), { grid: [20, 20] });
 
       });
