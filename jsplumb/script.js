@@ -63,7 +63,33 @@ myModule.run(function(flowchart) {
   });
   flowchart.set({
     'id': 1,
-    'instance': instance
+    'instance': instance,
+    'nodes': [
+      {
+        'id': 0,
+        'title': 'Public',
+        'text': 'R0-Resektion',
+        'type': 'status',
+        'top': 200,
+        'left': 10,
+      },
+      {
+        'id': 1,
+        'title': 'Private',
+        'text': 'UICC-Stad. I/II ohne RF *',
+        'type': 'status',
+        'top': 0,
+        'left': 500,
+      },
+      {
+        'id': 2,
+        'title': 'Pending',
+        'text': 'UICC-Stad. I/II mit RF *',
+        'type': 'status',
+        'top': 340,
+        'left': 420,
+      },
+    ]
   });
 });
 
@@ -87,14 +113,16 @@ myModule.controller('MyController',
       }
     };
 
-    instance.doWhileSuspended(function() {
-      instance.draggable($('.node'), { grid: [20, 20] });
-      _addEndpoints('container0');
-      _addEndpoints('container1');
-      _addEndpoints('container2');
-      instance.connect({uuids:['container0RightMiddle', 'container1LeftMiddle'], editable:true});
-      instance.connect({uuids:['container1BottomCenter', 'container2RightMiddle'], editable:true});
-      instance.connect({uuids:['container2LeftMiddle', 'container0BottomCenter'], editable:true});
+    jsPlumb.ready(function() {
+      instance.doWhileSuspended(function() {
+        instance.draggable($('.node'), { grid: [20, 20] });
+        _addEndpoints('container0');
+        _addEndpoints('container1');
+        _addEndpoints('container2');
+        instance.connect({uuids:['container0RightMiddle', 'container1LeftMiddle'], editable:true});
+        instance.connect({uuids:['container1BottomCenter', 'container2RightMiddle'], editable:true});
+        instance.connect({uuids:['container2LeftMiddle', 'container0BottomCenter'], editable:true});
+      });
     });
   }
 );

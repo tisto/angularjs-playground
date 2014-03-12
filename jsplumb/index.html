@@ -12,25 +12,14 @@
         text-align: center;
         line-height: 100px;
     }
-    #container0 {
-      top: 20px;
-      left: 20px;
-    }
-    #container1 {
-      top: 20px;
-      left: 280px;
-    }
-    #container2 {
-      top: 200px;
-      left: 140px;
-    }
   </style>
 </head>
 <body ng-controller="MyController">
   <div id="flowchart">
-    <div id="container0" class="node">Private</div>
-    <div id="container1" class="node">Public</div>
-    <div id="container2" class="node">Pending</div>
+    <div id="container{{node.id}}"
+         class="node"
+         style="top: {{node.top}}px; left: {{node.left}}px"
+         ng-repeat="node in flowchart.nodes">{{node.title}}</div>
   </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
