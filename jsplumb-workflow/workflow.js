@@ -91,7 +91,12 @@ myModule.run(function(flowchart) {
         'top': 340,
         'left': 420,
       },
-    ]
+    ],
+    'connections': [
+      ['container0', 'container1'],
+      ['container1', 'container2'],
+      ['container1', 'container0'],
+    ],
   });
 });
 
@@ -119,10 +124,10 @@ myModule.controller('MyController',
 
       var windows = jsPlumb.getSelector('#workflow .w');
 
-          // initialise draggable elements.
+      // initialise draggable elements.
       instance.draggable(windows);
 
-          // bind a click listener to each connection; the connection is deleted. you could of course
+      // bind a click listener to each connection; the connection is deleted. you could of course
       // just do this: jsPlumb.bind('click', jsPlumb.detach), but I wanted to make it clear what was
       // happening.
       instance.bind('click', function(c) {
@@ -162,12 +167,10 @@ myModule.controller('MyController',
           anchor:'Continuous'
         });
 
-        // and finally, make a couple of connections
-        instance.connect({ source:'container0', target:'container1' });
-        instance.connect({ source:'container1', target:'container2' });
-        instance.connect({ source:'container1', target:'container0' });
+        $.each($scope.flowchart.connections, function(index, value) {
+          instance.connect({ source: value[0], target: value[1] });
+        });
         instance.draggable($('.node'), { grid: [20, 20] });
-
       });
     });
   }
