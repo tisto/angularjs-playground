@@ -30,7 +30,7 @@ myModule.run(function(flowchart) {
           label: 'Click to edit',
           id: 'label',
           cssClass:'aLabel connectionLabel',
-          location: 0.7,
+          location: 0.62,
         }
       ]
     ],
@@ -66,6 +66,8 @@ myModule.run(function(flowchart) {
       {'from': 'node0', 'to': 'node1', 'label': 'retract'},
       {'from': 'node1', 'to': 'node2', 'label': 'submit for publication'},
       {'from': 'node1', 'to': 'node0', 'label': 'publish'},
+      {'from': 'node2', 'to': 'node0', 'label': 'publish'},
+      {'from': 'node2', 'to': 'node1', 'label': 'retract'},
     ],
   });
 });
