@@ -1,4 +1,4 @@
-var myModule = angular.module('myApp', []);
+var myModule = angular.module('myApp', ['ui.bootstrap']);
 
 myModule.factory('flowchart', function() {
   'use strict';
