@@ -11,7 +11,7 @@
     <div id="node{{node.id}}"
          class="node w"
          style="top: {{node.top}}px; left: {{node.left}}px"
-         ng-click="open()"
+         ng-dblclick="open()"
          ng-repeat="node in flowchart.nodes">
       {{node.title}}
       <div class="ep">
