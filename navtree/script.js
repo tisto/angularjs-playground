@@ -1,10 +1,6 @@
 var app, deps;
 
-deps = ['angularBootstrapNavTree'];
-
-/*if (angular.version.full.indexOf("1.2") >= 0) {
-  deps.push('ngAnimate');
-}*/
+deps = ['angularBootstrapNavTree', 'ngAnimate'];
 
 app = angular.module('AbnTest', deps);
 
