@@ -1,8 +1,8 @@
-var app, deps;
+var myModule, deps;
 
 deps = ['angularBootstrapNavTree', 'ngAnimate'];
 
-app = angular.module('AbnTest', deps);
+myModule = angular.module('AbnTest', deps);
 
 var example_treedata = [
   {
@@ -71,16 +71,16 @@ var example_treedata = [
   }
 ];
 
-app.factory('treeService',
+myModule.factory('treeService',
   function() {
     'use strict';
     return example_treedata;
   }
 );
 
-app.controller('AbnTestController', ['$scope', 'treeService', function($scope, treeService) {
+myModule.controller('AbnTestController', ['$scope', 'treeService', function($scope, treeService) {
   'use strict';
-  var apple_selected;
+  var myModulele_selected;
   $scope.my_tree_handler = function(branch) {
     var _ref;
     $scope.output = 'You selected: ' + branch.label;
@@ -88,7 +88,7 @@ app.controller('AbnTestController', ['$scope', 'treeService', function($scope, t
       return $scope.output += '(' + branch.data.description + ')';
     }
   };
-  apple_selected = function(branch) {
+  myModulele_selected = function(branch) {
     return $scope.output = 'APPLE! : ' + branch.label;
   };
   $scope.example_treedata = treeService;
