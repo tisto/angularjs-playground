@@ -11,17 +11,17 @@ var example_treedata = [
       {
         label: 'Dog',
         data: {
-          description: "man's best friend"
+          description: 'mans best friend'
         }
       }, {
         label: 'Cat',
         data: {
-          description: "Felis catus"
+          description: 'Felis catus'
         }
       }, {
         label: 'Hippopotamus',
         data: {
-          description: "hungry, hungry"
+          description: 'hungry, hungry'
         }
       }, {
         label: 'Chicken',
@@ -76,13 +76,13 @@ app.controller('AbnTestController', function($scope) {
   var apple_selected;
   $scope.my_tree_handler = function(branch) {
     var _ref;
-    $scope.output = "You selected: " + branch.label;
-    if ((_ref = branch.data) != null ? _ref.description : void 0) {
+    $scope.output = 'You selected: ' + branch.label;
+    if ((_ref = branch.data) != null ? _ref.description: void 0) {
       return $scope.output += '(' + branch.data.description + ')';
     }
   };
   apple_selected = function(branch) {
-    return $scope.output = "APPLE! : " + branch.label;
+    return $scope.output = 'APPLE! : ' + branch.label;
   };
   $scope.example_treedata = example_treedata;
 });
