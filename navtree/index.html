@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="abn_tree.css">
 </head>
 <body ng-controller="AbnTestController" style="margin:20px">
+
   <div style="width: 300px">
     <abn-tree tree-data="example_treedata" icon-leaf="icon-file" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Vegetable"></abn-tree>
   </div>
   <div class="alert alert-warning">{{ output }}</div>
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
