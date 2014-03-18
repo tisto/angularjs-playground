@@ -71,7 +71,14 @@ var example_treedata = [
   }
 ];
 
-app.controller('AbnTestController', function($scope) {
+app.factory('treeService',
+  function() {
+    'use strict';
+    return example_treedata;
+  }
+);
+
+app.controller('AbnTestController', ['$scope', 'treeService', function($scope, treeService) {
   'use strict';
   var apple_selected;
   $scope.my_tree_handler = function(branch) {
@@ -84,5 +91,5 @@ app.controller('AbnTestController', function($scope) {
   apple_selected = function(branch) {
     return $scope.output = 'APPLE! : ' + branch.label;
   };
-  $scope.example_treedata = example_treedata;
-});
+  $scope.example_treedata = treeService;
+}]);
