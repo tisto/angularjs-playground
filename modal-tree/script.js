@@ -79,7 +79,8 @@ myApp.factory('treeService',
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-myApp.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', 'treeService',
+myApp.controller('ModalInstanceCtrl',
+  ['$scope', '$modalInstance', 'items', 'treeService',
   function ($scope, $modalInstance, items, treeService) {
     'use strict';
     $scope.example_treedata = treeService;
@@ -99,7 +100,8 @@ myApp.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', 'tre
 ]);
 
 
-myApp.controller('ModalDemoCtrl', ['$scope', '$modal', '$log',
+myApp.controller('ModalDemoCtrl',
+  ['$scope', '$modal', '$log',
   function ($scope, $modal, $log) {
     'use strict';
     $scope.items = ['item1', 'item2', 'item3'];
@@ -138,16 +140,16 @@ myApp.directive('abnTree', function($timeout) {
     },
     link: function(scope, element, attrs) {
       var expand_level, for_each_branch, on_treeData_change, select_branch, selected_branch;
-      if (attrs.iconExpand == null) {
+      if (attrs.iconExpand === null) {
         attrs.iconExpand = 'icon-plus';
       }
-      if (attrs.iconCollapse == null) {
+      if (attrs.iconCollapse === null) {
         attrs.iconCollapse = 'icon-minus';
       }
-      if (attrs.iconLeaf == null) {
+      if (attrs.iconLeaf === null) {
         attrs.iconLeaf = 'icon-chevron-right';
       }
-      if (attrs.expandLevel == null) {
+      if (attrs.expandLevel === null) {
         attrs.expandLevel = '3';
       }
       expand_level = parseInt(attrs.expandLevel, 10);
@@ -157,7 +159,7 @@ myApp.directive('abnTree', function($timeout) {
         debugger;
         return;
       }
-      if (scope.treeData.length == null) {
+      if (scope.treeData.length === null) {
         if (treeData.label != null) {
           scope.treeData = [treeData];
         } else {
@@ -196,17 +198,17 @@ myApp.directive('abnTree', function($timeout) {
       selected_branch = null;
       select_branch = function(branch) {
         if (branch !== selected_branch) {
-          if (selected_branch != null) {
+          if (selected_branch !== null) {
             selected_branch.selected = false;
           }
           branch.selected = true;
           selected_branch = branch;
-          if (branch.onSelect != null) {
+          if (branch.onSelect !== null) {
             return $timeout(function() {
               return branch.onSelect(branch);
             });
           } else {
-            if (scope.onSelect != null) {
+            if (scope.onSelect !== null) {
               return $timeout(function() {
                 return scope.onSelect({
                   branch: branch
@@ -250,7 +252,7 @@ myApp.directive('abnTree', function($timeout) {
         });
         add_branch_to_list = function(level, branch, visible) {
           var child, child_visible, tree_icon, _i, _len, _ref, _results;
-          if (branch.expanded == null) {
+          if (branch.expanded === null) {
             branch.expanded = false;
           }
           if (!branch.children || branch.children.length === 0) {
@@ -269,7 +271,7 @@ myApp.directive('abnTree', function($timeout) {
             tree_icon: tree_icon,
             visible: visible
           });
-          if (branch.children != null) {
+          if (branch.children !== null) {
             _ref = branch.children;
             _results = [];
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -288,7 +290,7 @@ myApp.directive('abnTree', function($timeout) {
         }
         return _results;
       };
-      if (attrs.initialSelection != null) {
+      if (attrs.initialSelection !== null) {
         for_each_branch(function(b) {
           if (b.label === attrs.initialSelection) {
             return select_branch(b);

@@ -5,7 +5,13 @@
   </div>
 
   <div class="modal-body">
-    <abn-tree tree-data="example_treedata" icon-leaf="icon-file" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Vegetable"></abn-tree>
+    <abn-tree tree-data="example_treedata"
+              icon-leaf="fa fa-file"
+              icon-expand="fa fa-plus"
+              icon-collapse="fa fa-minus"
+              on-select="my_tree_handler(branch)"
+              expand-level="2"
+              initial-selection="Vegetable"></abn-tree>
   </div>
 
   <div class="modal-footer">
