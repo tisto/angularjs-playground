@@ -81,17 +81,8 @@ myModule.factory('treeService',
 myModule.controller('AbnTestController', ['$scope', 'treeService',
   function($scope, treeService) {
     'use strict';
-    var myModule_selected;
     $scope.my_tree_handler = function(branch) {
-      var _ref;
       $scope.output = 'You selected: ' + branch.label;
-      if ((_ref = branch.data) !== null ? _ref.description: void 0) {
-        return $scope.output += '(' + branch.data.description + ')';
-      }
-    };
-    myModule_selected = function(branch) {
-      $scope.output = 'APPLE! : ' + branch.label;
-      return $scope.output;
     };
     $scope.example_treedata = treeService;
   }
