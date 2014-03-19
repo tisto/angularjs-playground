@@ -5,12 +5,14 @@
   </div>
 
   <div class="modal-body">
+    <textarea ng-model="selected.text"></textarea>
     <ul>
       <li ng-repeat="item in items">
         <a ng-click="selected.item = item">{{ item }}</a>
       </li>
     </ul>
-    Selected: <b>{{ selected.item }}</b>
+    Selected Item: <b>{{ selected.item }}</b><br />
+    Selected Text: <b>{{ selected.text }}</b>
   </div>
 
   <div class="modal-footer">

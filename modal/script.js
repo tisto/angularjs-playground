@@ -12,7 +12,7 @@ myApp.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items',
     };
 
     $scope.ok = function () {
-      $modalInstance.close($scope.selected.item);
+      $modalInstance.close($scope.selected);
     };
 
     $scope.cancel = function () {
@@ -39,8 +39,8 @@ myApp.controller('ModalDemoCtrl', ['$scope', '$modal', '$log',
         }
       });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
+      modalInstance.result.then(function (selected) {
+        $scope.selected = selected;
       }, function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
