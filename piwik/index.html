@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+</head>
+<body ng-controller="TextController">
+  <ul ng-repeat="item in items">
+    <li>Datum: {{item.serverDatePretty}}</li>
+    <li>Uhrzeit: {{item.serverTimePretty}}</li>
+    <li>IP: {{item.visitIP}}</li>
+    <li>Provider: {{item.provider}}</li>
+    <li>Benutzer:</li>
+    <li>Betriebssystem: {{item.operatingSystem}}</li>
+    <li>Aktionen:
+      <ul>
+        <li ng-repeat="action in item.actionDetails">{{action.serverTimePretty}}: {{action.url}}</li>
+      </ul>
+    </li>
+  </ul>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
