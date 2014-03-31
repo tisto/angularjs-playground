@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+  <title>AngularJS: UI-Router</title>
+  <meta charset="utf-8" />
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container" ng-controller="NavigationController">
+
+  <div navigation-directive></div>
+
+  <div style="width: 80%; float: left;">
+    <div ui-view="viewA"></div>
+    <div ui-view="viewB"></div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+  <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
