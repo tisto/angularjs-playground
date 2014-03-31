@@ -2,22 +2,32 @@ var myModule = angular.module('myApp', ['ngRoute']);
 var messages = [
   {
     id: 0,
+    sender: 'john',
+    recipients: ['jane@doe.com'],
     subject: 'hi',
     date: 'today',
     message: 'yo'
+  },
+  {
+    id: 1,
+    sender: 'jane',
+    recipients: ['john@doe.com'],
+    subject: 'foo',
+    date: 'yesterday',
+    message: 'yo ho'
   }
 ];
 
-myModule.config(['$routeProvider', 'ListController', 'DetailController',
-  function($routeProvider, ListController, DetailController) {
+myModule.config(['$routeProvider',
+  function($routeProvider) {
   'use strict';
   $routeProvider
   .when('/', {
-      controller: ListController,
+      controller: 'ListController',
       templateUrl: 'list.html'
     }
   ).when('/view/:id', {
-      controller: DetailController,
+      controller: 'DetailController',
       templateUrl: 'detail.html'
     }
   ).otherwise({
