@@ -1,4 +1,4 @@
-var myapp = angular.module('myapp', ["ui.router"]);
+var myapp = angular.module('myapp', ['ui.router']);
 
 var navigation = [
   {
@@ -45,12 +45,8 @@ myapp.directive('navigationDirective',
 myapp.config(function($stateProvider) {
   angular.forEach(navigation, function(value, key){
     $stateProvider.state(value.id, {
-      url: "/" + value.id,
-      views: {
-        "viewA": {
-          templateUrl: value.id + ".html"
-        },
-      }
+      url: '/' + value.id,
+      templateUrl: value.id + '.html'
     });
   });
 });
