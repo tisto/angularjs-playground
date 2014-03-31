@@ -30,12 +30,14 @@ var navigation = [
 
 myapp.controller('NavigationController',
   function($scope) {
+    'use strict';
     $scope.navigation = navigation;
   }
 );
 
 myapp.directive('navigationDirective',
   function() {
+    'use strict';
     return {
       templateUrl: 'navigation.html'
     };
