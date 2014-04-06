@@ -1,9 +1,21 @@
 <h1>Plone 5</h1>
-<ul ng-controller="MainCtrl">
-  <li ng-repeat="build in data.builds">
-    <div build-directive></div>
-  </li>
-</div>
+<table ng-controller="MainCtrl" class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Column heading</th>
+      <th>Column heading</th>
+      <th>Column heading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="build in data.builds" class="active">
+      <td build-directive></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
@@ -40,3 +52,4 @@
 <div class="footer">
   <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
 </div>
+-->

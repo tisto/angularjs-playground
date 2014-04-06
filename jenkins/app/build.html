@@ -1,1 +1,7 @@
-<a href="{{build.url}}">#{{build.number}}: {{build.result}} ({{build.actions[8]}}, {{build.actions[9]}})</a>
+<td>{{build.number}}</td>
+<td>{{build.result}}</td>
+<td>{{build.actions[8].failCount}} of {{build.actions[8].totalCount}}</td>
+<td>{{build.actions[9].failCount}} of {{build.actions[9].totalCount}}</td>
+<td>
+  <a href="{{build.url}}">Link</a>
+</td>
