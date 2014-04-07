@@ -1,26 +1,38 @@
 <h1>Plone 5</h1>
-<table ng-controller="MainCtrl" class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Status</th>
-      <th>Tests</th>
-      <th>Robot Tests</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="build in data.builds" class="active">
-      <td>{{build.number}}</td>
-      <td>{{build.result}}</td>
-      <td>{{build.actions[8].failCount}} of {{build.actions[8].totalCount}}</td>
-      <td>{{build.actions[9].failCount}} of {{build.actions[9].totalCount}}</td>
-      <td>
-        <a href="{{build.url}}">Link</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="alert alert-success">
+  <b>Well done</b> All good!
+  <span class="glyphicon glyphicon-ok"></span>
+</div>
+<div class="table-responsive">
+  <table ng-controller="MainCtrl" class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Status</th>
+        <th>Commit</th>
+        <th>Failures</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="build in data.builds">
+        <td>{{build.number}}</td>
+        <td><span class="label" ng-class="{'label-success': build.result=='SUCCESS', 'label-danger': build.result=='FAILURE', 'label-default': build.result=='ABORTED'}">{{build.result}}</span></td>
+        <td></td>
+        <td>
+          <span ng-if="build.result=='SUCCESS'" class="text-success glyphicon glyphicon-ok"></span>
+          <span ng-if="build.result=='ABORTED'" class="text-success glyphicon glyphicon-minus"></span>
+          <span ng-if="build.result=='FAILURE'"
+                class="badge">{{build.actions[8].failCount + build.actions[9].failCount}}
+          </span>
+        </td>
+        <td>
+          <a href="{{build.url}}">Link</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <!--
 <div class="header">
