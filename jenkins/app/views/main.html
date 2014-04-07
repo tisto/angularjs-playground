@@ -17,9 +17,14 @@
     <tbody>
       <tr ng-repeat="build in data.builds">
         <td>{{build.number}}</td>
-        <td><span class="label" ng-class="{'label-success': build.result=='SUCCESS', 'label-danger': build.result=='FAILURE', 'label-default': build.result=='ABORTED'}">{{build.result}}</span></td>
+        <td>
+          <span class="label"
+                ng-class="{'label-success': build.result=='SUCCESS', 'label-danger': build.result=='FAILURE', 'label-default': build.result=='ABORTED'}">{{build.result}}</span>
+          <span ng-if="build.result==none" class="label label-info">IN PROGRESS</span>
+        </td>
         <td></td>
         <td>
+          <span ng-if="build.result==none" class="glyphicon glyphicon-refresh"></span>
           <span ng-if="build.result=='SUCCESS'" class="text-success glyphicon glyphicon-ok"></span>
           <span ng-if="build.result=='ABORTED'" class="text-success glyphicon glyphicon-minus"></span>
           <span ng-if="build.result=='FAILURE'"
