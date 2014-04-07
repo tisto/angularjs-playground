@@ -3,14 +3,21 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Column heading</th>
-      <th>Column heading</th>
-      <th>Column heading</th>
+      <th>Status</th>
+      <th>Tests</th>
+      <th>Robot Tests</th>
+      <th>Link</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="build in data.builds" class="active">
-      <td build-directive></td>
+      <td>{{build.number}}</td>
+      <td>{{build.result}}</td>
+      <td>{{build.actions[8].failCount}} of {{build.actions[8].totalCount}}</td>
+      <td>{{build.actions[9].failCount}} of {{build.actions[9].totalCount}}</td>
+      <td>
+        <a href="{{build.url}}">Link</a>
+      </td>
     </tr>
   </tbody>
 </table>
