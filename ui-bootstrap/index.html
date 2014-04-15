@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Angular UI</title>
+  <meta charset="utf-8" />
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+
+  <h2>Accordion</h2>
+  <div ng-controller="AccordionDemoCtrl">
+    <label class="checkbox">
+      <input type="checkbox" ng-model="oneAtATime">
+      Open only one at a time
+    </label>
+
+    <accordion close-others="oneAtATime">
+      <accordion-group heading="Static Header, initially expanded" is-open="true">
+        This content is straight in the template.
+      </accordion-group>
+      <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+        {{group.content}}
+      </accordion-group>
+      <accordion-group heading="Dynamic Body Content">
+        <p>The body of the accordion group grows to fit the contents</p>
+          <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+          <div ng-repeat="item in items">{{item}}</div>
+      </accordion-group>
+      <accordion-group is-open="isopen">
+          <accordion-heading>
+              I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
+          </accordion-heading>
+          This is just some content to illustrate fancy headings.
+      </accordion-group>
+    </accordion>
+  </div>
+
+</body>
+</html>
