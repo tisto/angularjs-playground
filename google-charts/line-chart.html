@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='myApp'
+<head>
+  <meta charset="utf-8" />
+  <script src="http://code.angularjs.org/1.2.10/angular.js"></script>
+  <script src="http://bouil.github.io/angular-google-chart/ng-google-chart.js"></script>
+  <script src="line-chart.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+  <div google-chart chart="chart"
+   style="border:1px inset black;padding:0;width:400px">
+  </div>
+
+  <p>
+    Software: <input type=range min=10000 max=100000 value={{aa}} ng-model="aa" ng-change="chart.data[1][1]=1*aa"> {{aa}}
+  </p>
+  <p>
+    Hardware: <input type=range min=10000 max=100000 value={{bb}} ng-model="bb" ng-change="chart.data[2][1]=1*bb">{{bb}}
+  </p>
+  <p>
+    Services: <input type=range min=10000 max=100000 value={{cc}} ng-model="cc" ng-change="chart.data[3][1]=1*cc">{{cc}}
+  </p>
+
+  <h2>Chart data as JSON:</h2>
+
+  <pre style='clear:both; background-color: lightgray;'>{{chart|json}}</pre>
+
+</body>
+</html>
