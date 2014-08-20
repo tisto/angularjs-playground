@@ -12,9 +12,11 @@
 <body ng-controller="AbnTestController" style="margin:20px">
 
   <div style="width:250px;background:whitesmoke;border:1px solid lightgray;border-radius:5px;">
-    <span ng-if="doing_async">...loading...</span>
-    <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Granny Smith"></abn-tree>
+    <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="0"></abn-tree>
   </div>
+
+  <br>
+
   <div style="width:300px" class="alert alert-warning">{{ output }}</div>
 
   <hr>
