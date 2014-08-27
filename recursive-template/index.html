@@ -2,22 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="app.js"></script>
 </head>
 <body>
   <h1>Recursive Templates</h1>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-  <script src="http://code.angularjs.org/1.2.14/angular-route.min.js"></script>
-  <script src="app.js"></script>
   <div ng-app="app" ng-controller='AppCtrl'>
-    <script type="text/ng-template" id="categoryTree">
-        {{ category.title }}
-        <ul ng-if="category.categories">
-            <li ng-repeat="category in category.categories" ng-include="'categoryTree'">
-            </li>
-        </ul>
+    <!-- Template -->
+    <script type="text/ng-template" id="navigationTree">
+      {{ node.title }}
+      <ul ng-if="node.children">
+        <li ng-repeat="node in node.children" ng-include="'navigationTree'">
+        </li>
+      </ul>
     </script>
+    <!-- Start Recursion -->
     <ul>
-        <li ng-repeat="category in categories" ng-include="'categoryTree'"></li>
+      <li ng-repeat="node in tree" ng-include="'navigationTree'"></li>
     </ul>
   </div>
 </body>

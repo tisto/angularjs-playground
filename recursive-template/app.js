@@ -2,18 +2,23 @@ var app = angular.module('app', []);
 
 app.controller('AppCtrl', function ($scope) {
 
-$scope.categories = [
+$scope.tree = [
   {
     title: 'Computers',
-    categories: [
+    children: [
       {
         title: 'Laptops',
-        categories: [
+        children: [
           {
             title: 'Ultrabooks'
           },
           {
-            title: 'Macbooks'
+            title: 'Macbooks',
+            children: [
+              {
+                title: 'Macbook Pro'
+              }
+            ]
           }
         ]
       },
@@ -24,7 +29,7 @@ $scope.categories = [
 
       {
         title: 'Tablets',
-        categories: [
+        children: [
           {
             title: 'Apple'
           },
