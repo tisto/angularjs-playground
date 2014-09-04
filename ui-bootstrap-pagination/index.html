@@ -1,31 +1,20 @@
 <!doctype html>
-<html ng-app="myModule">
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8" />
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
+  <script src="https://code.angularjs.org/1.2.23/angular-mocks.js"></script>
   <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
   <script src="app.js"></script>
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <div ng-controller="PaginationDemoCtrl">
-    <h4>Default</h4>
-    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+    <h4>Pagination</h4>
     <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
-    <pagination direction-links="false" boundary-links="true" total-items="totalItems" ng-model="currentPage"></pagination>
-    <pagination direction-links="false" total-items="totalItems" ng-model="currentPage" num-pages="smallnumPages"></pagination>
-    <pre>The selected page no: {{currentPage}}</pre>
-    <button class="btn btn-info" ng-click="setPage(3)">Set current page to: 3</button>
-
-    <hr />
-    <h4>Pager</h4>
-    <pager total-items="totalItems" ng-model="currentPage"></pager>
-
-    <hr />
-    <h4>Limit the maximum visible buttons</h4>
-    <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination>
-    <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
-    <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+    <ul ng-repeat="item in results">
+      <li>{{item.title}}</li>
+    </ul>
   </div>
 </body>
 </html>
