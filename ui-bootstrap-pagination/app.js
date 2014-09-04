@@ -1,70 +1,35 @@
 var myModule = angular.module('myApp', ['ui.bootstrap', 'ngMockE2E']);
 
 myModule.run(function($httpBackend) {
-  results = [
-    {
-      id: 'lorem1',
-      title: 'Lorem 1'
-    },
-    {
-      id: 'lorem2',
-      title: 'Lorem 2'
-    },
-    {
-      id: 'lorem3',
-      title: 'Lorem 3'
-    },
-    {
-      id: 'lorem4',
-      title: 'Lorem 4'
-    },
-    {
-      id: 'lorem5',
-      title: 'Lorem 5'
-    },
-    {
-      id: 'lorem6',
-      title: 'Lorem 6'
-    },
-    {
-      id: 'lorem7',
-      title: 'Lorem 7'
-    },
-    {
-      id: 'lorem8',
-      title: 'Lorem 8'
-    },
-    {
-      id: 'lorem9',
-      title: 'Lorem 9'
-    },
-    {
-      id: 'lorem10',
-      title: 'Lorem 10'
-    },
-  ];
+  var results = [];
+  for (var i = 0; i < 50; i++) {
+    results.push({
+      id: 'lorem' + i,
+      title: 'Lorem ' + i
+    })
+  };
   $httpBackend.whenGET('/results?batchSize=10&batchStart=0').respond(
     {
       results: results,
-      totalItems: 10,
+      totalItems: results.length,
     }
   );
   $httpBackend.whenGET('/results?batchSize=5&batchStart=0').respond(
     {
       results: results.slice(0,5),
-      totalItems: 10
+      totalItems: results.length
     }
   );
   $httpBackend.whenGET('/results?batchSize=5&batchStart=5').respond(
     {
       results: results.slice(5,10),
-      totalItems: 10
+      totalItems: results.length
     }
   );
   $httpBackend.whenGET('/results').respond(
     {
       results: results,
-      totalItems: 10
+      totalItems: results.length
     }
   );
 });
