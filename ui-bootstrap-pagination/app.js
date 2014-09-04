@@ -2,33 +2,39 @@ var myModule = angular.module('myApp', ['ui.bootstrap', 'ngMockE2E']);
 
 myModule.run(function($httpBackend) {
   var results = [];
-  for (var i = 0; i < 50; i++) {
+  for (var i = 1; i < 50; i++) {
     results.push({
       id: 'lorem' + i,
       title: 'Lorem ' + i
     })
   };
-  $httpBackend.whenGET('/results?batchSize=10&batchStart=0').respond(
+  $httpBackend.when('POST', '/results', {batchSize: 10, batchStart: 1}).respond(
     {
-      results: results,
-      totalItems: results.length,
-    }
-  );
-  $httpBackend.whenGET('/results?batchSize=5&batchStart=0').respond(
-    {
-      results: results.slice(0,5),
+      results: results.slice(0,10),
       totalItems: results.length
     }
   );
-  $httpBackend.whenGET('/results?batchSize=5&batchStart=5').respond(
+  $httpBackend.when('POST', '/results', {batchSize: 10, batchStart: 11}).respond(
     {
-      results: results.slice(5,10),
+      results: results.slice(10,20),
       totalItems: results.length
     }
   );
-  $httpBackend.whenGET('/results').respond(
+  $httpBackend.when('POST', '/results', {batchSize: 10, batchStart: 21}).respond(
     {
-      results: results,
+      results: results.slice(20,30),
+      totalItems: results.length
+    }
+  );
+  $httpBackend.when('POST', '/results', {batchSize: 10, batchStart: 31}).respond(
+    {
+      results: results.slice(30,40),
+      totalItems: results.length
+    }
+  );
+  $httpBackend.when('POST', '/results', {batchSize: 10, batchStart: 41}).respond(
+    {
+      results: results.slice(40,50),
       totalItems: results.length
     }
   );
@@ -39,11 +45,11 @@ myModule.factory('backendService',
     'use strict';
     var runUserRequest = function(batchStart, batchSize) {
       return $http({
-        method: 'GET',
+        method: 'POST',
         url: '/results',
-        params: {
+        data: {
+          batchSize: batchSize,
           batchStart: batchStart,
-          batchSize: batchSize
         }
       });
     };
@@ -61,9 +67,9 @@ myModule.controller('PaginationDemoCtrl',
     var timeout;
     $scope.results = [];
     $scope.totalItems = 0;
-    $scope.currentPage = 0;
-    $scope.batchStart = 0;
-    $scope.batchSize = 5;
+    $scope.currentPage = 1;
+    $scope.batchStart = 1;
+    $scope.batchSize = 10;
     backendService.events($scope.batchStart, $scope.batchSize)
     .success(function(data, status) {
       $scope.results = data.results;
@@ -74,8 +80,8 @@ myModule.controller('PaginationDemoCtrl',
       if (newCurrentPage) {
         if (timeout) $timeout.cancel(timeout);
         timeout = $timeout(function() {
-          var batchStart = ((($scope.currentPage - 1) * $scope.batchSize));
-          backendService.events(batchStart, $scope.batchSize)
+          $scope.batchStart = ((($scope.currentPage - 1) * $scope.batchSize) + 1);
+          backendService.events($scope.batchStart, $scope.batchSize)
           .success(function(data, status) {
             $scope.results = data.results;
             $scope.totalItems = data.totalItems + 1;
