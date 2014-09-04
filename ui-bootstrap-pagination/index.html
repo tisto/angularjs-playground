@@ -11,10 +11,14 @@
 <body>
   <div ng-controller="PaginationDemoCtrl">
     <h4>Pagination</h4>
-    <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+    TotalItems: {{totalItems}}<br />
+    BatchStart: <input ng-model="batchStart" /><br />
+    BatchSize: <input ng-model="batchSize" /><br />
+    CurrentPage: <input ng-model="currentPage" /><br />
     <ul ng-repeat="item in results">
       <li>{{item.title}}</li>
     </ul>
+    <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
   </div>
 </body>
 </html>

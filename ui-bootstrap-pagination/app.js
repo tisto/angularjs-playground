@@ -43,21 +43,48 @@ myModule.run(function($httpBackend) {
       title: 'Lorem 10'
     },
   ];
-  $httpBackend.whenGET('/results').respond(results);
+  $httpBackend.whenGET('/results?batchSize=10&batchStart=0').respond(
+    {
+      results: results,
+      totalItems: 10,
+    }
+  );
+  $httpBackend.whenGET('/results?batchSize=5&batchStart=0').respond(
+    {
+      results: results.slice(0,5),
+      totalItems: 10
+    }
+  );
+  $httpBackend.whenGET('/results?batchSize=5&batchStart=5').respond(
+    {
+      results: results.slice(5,10),
+      totalItems: 10
+    }
+  );
+  $httpBackend.whenGET('/results').respond(
+    {
+      results: results,
+      totalItems: 10
+    }
+  );
 });
 
 myModule.factory('backendService',
   function($http) {
     'use strict';
-    var runUserRequest = function() {
+    var runUserRequest = function(batchStart, batchSize) {
       return $http({
         method: 'GET',
-        url: '/results'
+        url: '/results',
+        params: {
+          batchStart: batchStart,
+          batchSize: batchSize
+        }
       });
     };
     return {
       events: function(batchStart, batchSize) {
-        return runUserRequest();
+        return runUserRequest(batchStart, batchSize);
       }
     };
   }
@@ -67,26 +94,29 @@ myModule.controller('PaginationDemoCtrl',
   function($scope, $timeout, backendService) {
     'use strict';
     var timeout;
-    var batchStart = 0;
-    var batchSize = 5;
-    $scope.results = ['foo'];
-    backendService.events(batchStart, batchSize)
+    $scope.results = [];
+    $scope.totalItems = 0;
+    $scope.currentPage = 0;
+    $scope.batchStart = 0;
+    $scope.batchSize = 5;
+    backendService.events($scope.batchStart, $scope.batchSize)
     .success(function(data, status) {
-      $scope.results = data;
+      $scope.results = data.results;
+      $scope.totalItems = data.totalItems + 1;
     });
-    $scope.totalItems = 64;
-    $scope.currentPage = 4;
 
-    $scope.setPage = function (pageNo) {
-      $scope.currentPage = pageNo;
-    };
-
-    $scope.pageChanged = function() {
-      console.log('Page changed to: ' + $scope.currentPage);
-    };
-
-    $scope.maxSize = 5;
-    $scope.bigTotalItems = 175;
-    $scope.bigCurrentPage = 1;
+    $scope.$watch('currentPage', function(newCurrentPage) {
+      if (newCurrentPage) {
+        if (timeout) $timeout.cancel(timeout);
+        timeout = $timeout(function() {
+          var batchStart = ((($scope.currentPage - 1) * $scope.batchSize));
+          backendService.events(batchStart, $scope.batchSize)
+          .success(function(data, status) {
+            $scope.results = data.results;
+            $scope.totalItems = data.totalItems + 1;
+          });
+        }, 350);
+      }
+    });
   }
 );
