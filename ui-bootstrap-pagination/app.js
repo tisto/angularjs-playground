@@ -2,7 +2,7 @@ var myModule = angular.module('myApp', ['ui.bootstrap', 'ngMockE2E']);
 
 myModule.run(function($httpBackend) {
   var results = [];
-  for (var i = 1; i < 50; i++) {
+  for (var i = 1; i <= 50; i++) {
     results.push({
       id: 'lorem' + i,
       title: 'Lorem ' + i
@@ -73,7 +73,7 @@ myModule.controller('PaginationDemoCtrl',
     backendService.events($scope.batchStart, $scope.batchSize)
     .success(function(data, status) {
       $scope.results = data.results;
-      $scope.totalItems = data.totalItems + 1;
+      $scope.totalItems = data.totalItems;
     });
 
     $scope.$watch('currentPage', function(newCurrentPage) {
@@ -84,7 +84,7 @@ myModule.controller('PaginationDemoCtrl',
           backendService.events($scope.batchStart, $scope.batchSize)
           .success(function(data, status) {
             $scope.results = data.results;
-            $scope.totalItems = data.totalItems + 1;
+            $scope.totalItems = data.totalItems;
           });
         }, 350);
       }
