@@ -10,11 +10,11 @@
 </head>
 <body ng-controller="TypeaheadCtrl">
   <input type="text"
-         ng-model="selected"
-         placeholder="Locations loaded via $http"
-         typeahead="address for address in getLocation($viewValue)"
-         typeahead-loading="loadingLocations"
+         ng-model="searchterm"
+         placeholder="Suche"
+         typeahead="term for term in getAutocompleteSuggestions($viewValue)"
+         typeahead-loading="loadingAutocompleteSuggestions"
          class="form-control">
-  <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+  <i ng-show="loadingAutocompleteSuggestions" class="glyphicon glyphicon-refresh"></i>
 </body>
 </html>
