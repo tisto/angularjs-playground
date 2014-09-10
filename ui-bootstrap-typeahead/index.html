@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-mocks.js"></script>
+  <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+  <script src="app.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body ng-controller="TypeaheadCtrl">
+  <input type="text"
+         ng-model="selected"
+         placeholder="Locations loaded via $http"
+         typeahead="address for address in getLocation($viewValue)"
+         typeahead-loading="loadingLocations"
+         class="form-control">
+  <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+</body>
+</html>
