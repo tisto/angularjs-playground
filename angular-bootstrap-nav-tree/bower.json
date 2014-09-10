@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-bootstrap-nav-tree": "*"
+    "angular-bootstrap-nav-tree": "*",
+    "angular-mocks": "~1.2.23"
   }
 }
