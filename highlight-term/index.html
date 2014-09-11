@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style type="text/css">
+    .highlightedText {
+      background: yellow;
+    }
+  </style>
+</head>
+<body ng-controller="TextController">
+  <span ng-bind-html="highlight(text, searchText)"></span>
+</body>
+</html>
