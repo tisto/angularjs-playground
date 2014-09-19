@@ -1,3 +1,11 @@
+==============================================================================
+Getting Started with Angular JS
+==============================================================================
+
+
+Node Package Manager
+--------------------
+
 package.json::
 
   {
@@ -11,3 +19,19 @@ package.json::
   }
 
 npm install
+
+
+Bower
+-----
+
+  $ bower init
+
+
+Gulp
+----
+
+Install Gulp globally::
+
+  $ npm install gulp -g
+
+http://markgoodyear.com/2014/01/getting-started-with-gulp/
