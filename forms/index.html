@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <div style="width: 300px; margin: 0 auto;">
+    <form ng-controller="FormCtrl as form"
+      name="myForm"
+      ng-submit="form.submit(myForm.$valid, data)"
+      role="form">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Name</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ihr Name">
+      </div>
+      <div class="form-group has-error">
+        <label for="exampleInputEmail1">Email Adresse</label>
+        <div ng-if="myForm.myEmail.$invalid">
+          Bitte geben sie eine gültige E-Mail Adresse ein.
+        </div>
+        <input type="email"
+               placeholder="E-Mail"
+               class="form-control"
+               name="myEmail"
+               minlength="5"
+               maxlength="100"
+               ng-model="data.myEmail"
+               required />
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
+

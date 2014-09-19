@@ -1,0 +1,8 @@
+{
+    "name": "angularjs-playground-forms",
+    "version": "0.1.0",
+    "devDependencies": {
+      "gulp": "*",
+      "gulp-livereload": "*"
+   }
+}
