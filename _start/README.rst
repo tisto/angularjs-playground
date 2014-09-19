@@ -35,3 +35,34 @@ Install Gulp globally::
   $ npm install gulp -g
 
 http://markgoodyear.com/2014/01/getting-started-with-gulp/
+
+
+Gulp Live Reload
+----------------
+
+package.json::
+
+  {
+    "name": "myproject",
+    "version": "0.0.1",
+    "devDependencies": {
+      "gulp": "*",
+      "gulp-livereload": "*"
+    }
+  }
+
+Install Dependencies::
+
+  $ npm install
+
+Start Gulp Watch::
+
+  $ gulp watch
+
+Install Firefox LiveReload Plugin:
+
+http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
+
+Do not install from here:
+
+https://addons.mozilla.org/de/firefox/addon/livereload/
