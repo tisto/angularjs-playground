@@ -37,32 +37,32 @@ Install Gulp globally::
 http://markgoodyear.com/2014/01/getting-started-with-gulp/
 
 
-Gulp Live Reload
-----------------
+Gulp Browser Sync
+-----------------
 
-package.json::
+gulpfile.js::
 
-  {
-    "name": "myproject",
-    "version": "0.0.1",
-    "devDependencies": {
-      "gulp": "*",
-      "gulp-livereload": "*"
-    }
-  }
+  var gulp        = require('gulp');
+  var browserSync = require('browser-sync');
 
-Install Dependencies::
+  // Static server
+  gulp.task('browser-sync', function() {
+      browserSync({
+          server: {
+              baseDir: "./"
+          }
+      });
+  });
 
-  $ npm install
+Install Gulp and BrowserSync::
 
-Start Gulp Watch::
+  $ npm install browser-sync gulp --save-dev
 
-  $ gulp watch
+..more: http://www.browsersync.io/docs/gulp/
 
-Install Firefox LiveReload Plugin:
 
-http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
+Angular Mocks
+-------------
 
-Do not install from here:
+  $ bower install angular-mocks --save
 
-https://addons.mozilla.org/de/firefox/addon/livereload/
