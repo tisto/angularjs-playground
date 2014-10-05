@@ -1,0 +1,19 @@
+{
+  "name": "ui-grid",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tisto/angularjs-playground",
+  "authors": [
+    "Timo Stollenwerk <tisto@plone.org>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-grid": "~3.0.0-rc.11"
+  }
+}
