@@ -66,3 +66,23 @@ Angular Mocks
 
   $ bower install angular-mocks --save
 
+
+Gulp Less
+---------
+
+ $ npm install gulp-less --save-dev
+
+Gulp Javascript
+---------------
+
+Install Gulp Javascript:
+
+  $ npm install gulp-uglify --save-dev
+  $ npm install gulp-concat --save-dev
+  $ npm install gulp-jshint --save-dev
+
+gulp.task('minify', function () {
+   gulp.src('js/app.js')
+      .pipe(uglify())
+      .pipe(gulp.dest('build'))
+});
