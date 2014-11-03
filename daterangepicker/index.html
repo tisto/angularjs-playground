@@ -13,8 +13,9 @@
   <script src="app.js"></script>
 </head>
 <body>
-  <div ng-controller="DaterangeController">
-    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" />
+  <div ng-controller="DaterangeController" style="width: 200px; margin: 20px;">
+    <label for="daterange">Date Range:</label>
+    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{format: 'DD.MM.YYYY', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig'}}" />
   </div>
 </body>
 </html>
