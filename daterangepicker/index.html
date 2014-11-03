@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+  <script src="bower_components/angular.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angularjs/angular.min.js"></script>
+  <script src="bower_components/momentjs/moment.js"></script>
+  <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div ng-controller="DaterangeController">
+    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" />
+  </div>
+</body>
+</html>
