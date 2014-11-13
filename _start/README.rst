@@ -6,7 +6,20 @@ Getting Started with Angular JS
 Node Package Manager
 --------------------
 
-package.json::
+Install NodeJS::
+
+  $ wget http://nodejs.org/dist/v0.10.33/node-v0.10.33.tar.gz
+  $ tar xfvz node-v0.10.33.tar.gz
+  $ cd node-v0.10.33
+  $ ./configure
+  $ make
+  $ sudo make install
+
+Create package.json::
+
+  $ npm init
+
+Your package.json should look like this::
 
   {
     "name": "ui-bootstrap-pagination",
@@ -18,11 +31,15 @@ package.json::
     }
   }
 
-npm install
-
 
 Bower
 -----
+
+Install Bower::
+
+  $ sudo npm install bower -g
+
+Create an initial bower.json configuration file::
 
   $ bower init
 
@@ -40,6 +57,11 @@ http://markgoodyear.com/2014/01/getting-started-with-gulp/
 Gulp Browser Sync
 -----------------
 
+Install Gulp and BrowserSync::
+
+  $ npm install browser-sync gulp --save-dev
+
+
 gulpfile.js::
 
   var gulp        = require('gulp');
@@ -54,9 +76,9 @@ gulpfile.js::
       });
   });
 
-Install Gulp and BrowserSync::
+Run Browser Sync::
 
-  $ npm install browser-sync gulp --save-dev
+  $ gulp browser-sync
 
 ..more: http://www.browsersync.io/docs/gulp/
 
