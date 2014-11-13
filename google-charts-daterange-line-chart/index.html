@@ -3,9 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="http://bouil.github.io/angular-google-chart/ng-google-chart.js"></script>
   <script src="app.js"></script>
 </head>
-<body ng-controller="TextController">
-  <p>{{someText.message}}</p>
+<body ng-controller="DateRangeLineCharController">
+  <!--<div id="daterange">
+    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{format: 'DD.MM.YYYY', opens: 'left', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig', fromLabel: 'Von', toLabel: 'Bis', firstDay: 1, daysOfWeek: ['Mo', 'Di', 'Mi', 'Do', 'Fr','Sa', 'So']}}" />
+  </div>
+  <div id="tickets-buttons" class="btn-group">
+    <button type="button"
+            id="day"
+            ng-click="get_tickets('day')"
+            class="btn btn-default">Tag</button>
+    <button type="button"
+            id="week"
+            ng-click="get_tickets('week')"
+            class="btn btn-default">Woche</button>
+    <button type="button"
+            id="month"
+            ng-click="get_tickets('month')"
+            class="btn btn-default">Monat</button>
+    <button type="button"
+            id="year"
+            ng-click="get_tickets('year')"
+            class="btn btn-default">Jahr</button>
+  </div>-->
+
+  <div google-chart class="chart" chart="chart"></div>
+
+  <pre style='clear:both; background-color: lightgray;'>{{chart|json}}</pre>
+
+</div>
+
+
 </body>
 </html>

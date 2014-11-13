@@ -15,5 +15,8 @@
     "public/components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-google-chart": "~0.0.11"
+  }
 }
