@@ -2,12 +2,20 @@
 <html ng-app="myApp">
 <head>
   <meta charset="utf-8" />
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-  <script src="http://bouil.github.io/angular-google-chart/ng-google-chart.js"></script>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+  <script src="bower_components/angularjs/angular.js"></script>
+  <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
+  <script src="bower_components/angular.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angularjs/angular.min.js"></script>
+  <script src="bower_components/momentjs/moment.js"></script>
+  <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
   <script src="app.js"></script>
 </head>
 <body ng-controller="DateRangeLineCharController">
-  <!--<div id="daterange">
+  <div id="daterange">
     <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{format: 'DD.MM.YYYY', opens: 'left', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig', fromLabel: 'Von', toLabel: 'Bis', firstDay: 1, daysOfWeek: ['Mo', 'Di', 'Mi', 'Do', 'Fr','Sa', 'So']}}" />
   </div>
   <div id="tickets-buttons" class="btn-group">
@@ -27,7 +35,7 @@
             id="year"
             ng-click="get_tickets('year')"
             class="btn btn-default">Jahr</button>
-  </div>-->
+  </div>
 
   <div google-chart class="chart" chart="chart"></div>
 

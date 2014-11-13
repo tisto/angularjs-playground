@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['googlechart']);
+var myApp = angular.module('myApp', ['googlechart', 'daterangepicker']);
 
 var chartColorBlue = '#a5bee6';
 var chartColorYellow = '#f0c155';
@@ -13,6 +13,17 @@ var chartFontSize = 10;
 myApp.controller('DateRangeLineCharController', ['$scope',
   function($scope) {
 
+    // DateRangePicker
+    $scope.date = {startDate: null, endDate: null};
+
+    $scope.$watch('date', function(newValue, oldValue) {
+      var startDate = newValue.startDate;
+      var endDate = newValue.endDate;
+      console.log("Start: " + startDate);
+      console.log("End: " + endDate);
+    });
+
+    // Chart
     $scope.chart = {};
 
     $scope.chart.data = {
