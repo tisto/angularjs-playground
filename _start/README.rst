@@ -43,6 +43,12 @@ Create an initial bower.json configuration file::
 
   $ bower init
 
+Bower configuration (.bowerrc)::
+
+  {
+    "directory": "app/bower_components"
+  }
+
 
 Gulp
 ----
