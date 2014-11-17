@@ -16,11 +16,11 @@ myApp.factory('chartService', ['$http',
     var getTickets = function(daterange) {
       return $http({
         method: 'GET',
-        url: 'get_tickets?daterange=day'
+        url: 'get_tickets?daterange=' + daterange
       });
     };
     return {
-      getTickets: function(username) {
+      getTickets: function(daterange) {
         return getTickets(daterange);
       }
     };
@@ -64,12 +64,25 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
       chartService.getTickets('day')
       .success(function(data, status) {
         $scope.chart.data = data;
-        console.log(data);
       })
       .error(function(data, status) {
         alert('chartService.getTickets() failed: ' + data);
       });
     }, 350);
+
+    $scope.get_tickets = function(daterange) {
+      // Chart Data
+      var timeout;
+      timeout = $timeout(function() {
+        chartService.getTickets(daterange)
+        .success(function(data, status) {
+          $scope.chart.data = data;
+        })
+        .error(function(data, status) {
+          alert('chartService.getTickets() failed: ' + data);
+        });
+      }, 350);
+    };
 
     // DateRangePicker
     $scope.date = {startDate: null, endDate: null};
