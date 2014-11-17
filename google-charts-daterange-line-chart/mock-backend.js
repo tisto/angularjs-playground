@@ -26,8 +26,7 @@ angular.module('e2e-mocks', ['ngMockE2E']).run(function($httpBackend) {
       {"c": [{"v": "13/11/2014"}, {"v": 0}]}
     ]
   };
-  var re = new RegExp('get_tickets');
-  $httpBackend.whenGET(re).respond(tickets);
+  $httpBackend.whenGET('get_tickets?daterange=day').respond(tickets);
 
 
   // --- PASS THROUGH TEMPLATES ----------------------------------------------

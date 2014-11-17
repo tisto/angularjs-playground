@@ -10,109 +10,29 @@ var chartColorDarkGrey = '#666666';
 var chartFontSize = 10;
 
 
-myApp.controller('DateRangeLineCharController', ['$scope',
-  function($scope) {
+myApp.factory('chartService', ['$http',
+  function($http) {
+    'use strict';
+    var getTickets = function(daterange) {
+      return $http({
+        method: 'GET',
+        url: 'get_tickets?daterange=day'
+      });
+    };
+    return {
+      getTickets: function(username) {
+        return getTickets(daterange);
+      }
+    };
+  }
+]);
 
-    // DateRangePicker
-    $scope.date = {startDate: null, endDate: null};
 
-    $scope.$watch('date', function(newValue, oldValue) {
-      var startDate = newValue.startDate;
-      var endDate = newValue.endDate;
-      console.log("Start: " + startDate);
-      console.log("End: " + endDate);
-    });
+myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartService',
+  function($scope, $timeout, chartService) {
 
     // Chart
     $scope.chart = {};
-
-    $scope.chart.data = {
-      "cols": [
-        {
-            "id": "zeit",
-            "label": "Zeit",
-            "type": "string"
-        },
-        {
-            "id": "anfragen",
-            "label": "Anfragen",
-            "type": "number"
-        }
-      ],
-      "rows": [
-        {
-            "c": [
-                {
-                    "v": "07/11/2014"
-                },
-                {
-                    "v": 5
-                }
-            ]
-        },
-        {
-            "c": [
-                {
-                    "v": "08/11/2014"
-                },
-                {
-                    "v": 0
-                }
-            ]
-        },
-        {
-            "c": [
-                {
-                    "v": "09/11/2014"
-                },
-                {
-                    "v": 0
-                }
-            ]
-        },
-        {
-            "c": [
-                {
-                    "v": "10/11/2014"
-                },
-                {
-                    "v": 30
-                }
-            ]
-        },
-        {
-            "c": [
-                {
-                    "v": "11/11/2014"
-                },
-                {
-                    "v": 0
-                }
-            ]
-        },
-        {
-            "c": [
-                {
-                    "v": "12/11/2014"
-                },
-                {
-                    "v": 0
-                }
-            ]
-        },
-        {
-            "c": [
-                {
-                    "v": "13/11/2014"
-                },
-                {
-                    "v": 0
-                }
-            ]
-        }
-      ]
-    }
-
     $scope.chart.type = "LineChart";
     $scope.chart.options = {
       fontSize: chartFontSize,
@@ -137,6 +57,26 @@ myApp.controller('DateRangeLineCharController', ['$scope',
         easing: 'out'
       },
     };
+
+    // Chart Data
+    var timeout;
+    timeout = $timeout(function() {
+      chartService.getTickets('day')
+      .success(function(data, status) {
+        $scope.chart.data = data;
+        console.log(data);
+      })
+      .error(function(data, status) {
+        alert('chartService.getTickets() failed: ' + data);
+      });
+    }, 350);
+
+    // DateRangePicker
+    $scope.date = {startDate: null, endDate: null};
+    $scope.$watch('date', function(newValue, oldValue) {
+      var startDate = newValue.startDate;
+      var endDate = newValue.endDate;
+    });
 
   }]
 );
