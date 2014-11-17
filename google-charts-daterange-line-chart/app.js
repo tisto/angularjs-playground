@@ -76,26 +76,12 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
     getTickets('day');
 
     $scope.setDaterange = function(dateRange) {
-      $scope.date.dateRange = dateRange;
-      if (dateRange === 'day') {
-        $scope.date.startDate = moment().subtract(7, 'days');
-        $scope.date.endDate = moment();
-        getTickets('day');
-      } else if (dateRange === 'week') {
-        $scope.date.startDate = moment().subtract(7, 'weeks');
-        $scope.date.endDate = moment();
-        getTickets('week');
-      } else if (dateRange === 'month') {
-        $scope.date.startDate = moment().subtract(7, 'months');
-        $scope.date.endDate = moment();
-        getTickets('month');
-      } else if (dateRange === 'year') {
-        $scope.date.startDate = moment().subtract(7, 'years');
-        $scope.date.endDate = moment();
-        getTickets('year');
-      } else {
-        alert("error");
+      $scope.date = {
+        startDate: moment().subtract(7, dateRange + 's'),
+        endDate: moment(),
+        dateRange: dateRange
       }
+      getTickets(dateRange);
     }
 
     // DateRangePicker
@@ -104,10 +90,12 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
       endDate: moment(),
       dateRange: 'day',
     };
+
+    /*
     $scope.$watch('date', function(newValue, oldValue) {
       var startDate = newValue.startDate;
       var endDate = newValue.endDate;
-    });
+    });*/
 
   }]
 );
