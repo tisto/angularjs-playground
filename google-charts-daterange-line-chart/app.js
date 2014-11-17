@@ -59,18 +59,7 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
     };
 
     // Chart Data
-    var timeout;
-    timeout = $timeout(function() {
-      chartService.getTickets('day')
-      .success(function(data, status) {
-        $scope.chart.data = data;
-      })
-      .error(function(data, status) {
-        alert('chartService.getTickets() failed: ' + data);
-      });
-    }, 350);
-
-    $scope.get_tickets = function(daterange) {
+    var getTickets = function(daterange) {
       // Chart Data
       var timeout;
       timeout = $timeout(function() {
@@ -84,8 +73,37 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
       }, 350);
     };
 
+    getTickets('day');
+
+    $scope.setDaterange = function(dateRange) {
+      $scope.date.dateRange = dateRange;
+      if (dateRange === 'day') {
+        $scope.date.startDate = moment().subtract(7, 'days');
+        $scope.date.endDate = moment();
+        getTickets('day');
+      } else if (dateRange === 'week') {
+        $scope.date.startDate = moment().subtract(7, 'weeks');
+        $scope.date.endDate = moment();
+        getTickets('week');
+      } else if (dateRange === 'month') {
+        $scope.date.startDate = moment().subtract(7, 'months');
+        $scope.date.endDate = moment();
+        getTickets('month');
+      } else if (dateRange === 'year') {
+        $scope.date.startDate = moment().subtract(7, 'years');
+        $scope.date.endDate = moment();
+        getTickets('year');
+      } else {
+        alert("error");
+      }
+    }
+
     // DateRangePicker
-    $scope.date = {startDate: null, endDate: null};
+    $scope.date = {
+      startDate: moment().subtract(7, 'days'),
+      endDate: moment(),
+      dateRange: 'day',
+    };
     $scope.$watch('date', function(newValue, oldValue) {
       var startDate = newValue.startDate;
       var endDate = newValue.endDate;
