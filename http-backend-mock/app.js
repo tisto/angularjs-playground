@@ -6,7 +6,7 @@ myApp.controller('UsersController',
     $scope.users = [];
     $http({
       method: 'GET',
-      url: 'get_users'
+      url: '/api/users'
     }).success(function(data, status, headers, config) {
       $scope.users = data;
     });

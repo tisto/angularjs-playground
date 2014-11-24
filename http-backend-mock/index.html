@@ -11,7 +11,7 @@
 <body ng-controller="UsersController">
   <h3>Users</h3>
   <ul>
-    <li ng-repeat="user in users">{{user.firstname}} {{user.lastname}}</li>
+    <li ng-repeat="user in users">{{user.name}} (ID: {{user._id}})</li>
   </ul>
 </body>
 </html>
