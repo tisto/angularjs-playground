@@ -1,0 +1,17 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+  <script src="app.js"></script>
+  <!-- Backend Mocks -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-mocks.js"></script>
+  <script src="mock-backend.js"></script>
+</head>
+<body ng-controller="UsersController">
+  <h3>Users</h3>
+  <ul>
+    <li ng-repeat="user in users">{{user.firstname}} {{user.lastname}}</li>
+  </ul>
+</body>
+</html>
