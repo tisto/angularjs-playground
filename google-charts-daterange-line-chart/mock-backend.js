@@ -28,6 +28,31 @@ angular.module('e2e-mocks', ['ngMockE2E']).run(function($httpBackend) {
   };
   $httpBackend.whenGET('get_tickets?daterange=day').respond(day_tickets);
 
+  var day_tickets = {
+    "cols": [
+      {
+          "id": "zeit",
+          "label": "Zeit",
+          "type": "string"
+      },
+      {
+          "id": "anfragen",
+          "label": "Anfragen",
+          "type": "number"
+      }
+    ],
+    "rows": [
+      {"c": [{"v": "2014-11-11"}, {"v": 5}]},
+      {"c": [{"v": "2014-11-12"}, {"v": 0}]},
+      {"c": [{"v": "2014-11-13"}, {"v": 0}]},
+      {"c": [{"v": "2014-11-14"}, {"v": 30}]},
+      {"c": [{"v": "2014-11-15"}, {"v": 0}]},
+      {"c": [{"v": "2014-11-16"}, {"v": 0}]},
+      {"c": [{"v": "2014-11-17"}, {"v": 0}]}
+    ]
+  };
+  $httpBackend.whenGET('get_tickets?daterange=day&startDate=2014-11-11&endDate=2014-11-17').respond(day_tickets);
+
   var week_tickets = {
     "cols": [
         {
