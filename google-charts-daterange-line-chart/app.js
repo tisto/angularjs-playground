@@ -60,7 +60,6 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
 
     // Chart Data
     var getTickets = function(daterange) {
-      // Chart Data
       var timeout;
       timeout = $timeout(function() {
         chartService.getTickets(daterange)
@@ -72,9 +71,9 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
         });
       }, 350);
     };
-
     getTickets('day');
 
+    // Set Daterange
     $scope.setDaterange = function(dateRange) {
       $scope.date = {
         startDate: moment().subtract(7, dateRange + 's'),
@@ -83,19 +82,7 @@ myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartSer
       }
       getTickets(dateRange);
     }
-
-    // DateRangePicker
-    $scope.date = {
-      startDate: moment().subtract(7, 'days'),
-      endDate: moment(),
-      dateRange: 'day',
-    };
-
-    /*
-    $scope.$watch('date', function(newValue, oldValue) {
-      var startDate = newValue.startDate;
-      var endDate = newValue.endDate;
-    });*/
+    $scope.setDaterange('day');
 
   }]
 );

@@ -11,6 +11,7 @@
   <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/momentjs/moment.js"></script>
+  <script src="bower_components/momentjs/locale/de.js"></script>
   <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
   <script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
   <script src="app.js"></script>
@@ -20,7 +21,7 @@
 </head>
 <body ng-controller="DateRangeLineCharController">
   <div id="daterange">
-    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{format: 'YYYY-MM-DD', opens: 'left', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig', fromLabel: 'Von', toLabel: 'Bis', firstDay: 1, daysOfWeek: ['Mo', 'Di', 'Mi', 'Do', 'Fr','Sa', 'So']}}" />
+    <input id="date-range-picker" date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{format: 'DD.MM.YYYY', opens: 'left', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig', fromLabel: 'Von', toLabel: 'Bis', firstDay: 1, daysOfWeek: ['Mo', 'Di', 'Mi', 'Do', 'Fr','Sa', 'So']}}" />
   </div>
   <div id="tickets-buttons" class="btn-group">
     <button type="button"
