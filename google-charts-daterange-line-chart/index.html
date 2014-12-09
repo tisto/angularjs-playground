@@ -20,7 +20,7 @@
 </head>
 <body ng-controller="DateRangeLineCharController">
   <div id="daterange">
-    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{opens: 'left', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig', fromLabel: 'Von', toLabel: 'Bis', firstDay: 1, daysOfWeek: ['Mo', 'Di', 'Mi', 'Do', 'Fr','Sa', 'So']}}" />
+    <input date-range-picker class="form-control date-picker" type="text" ng-model="date" options="{format: 'YYYY-MM-DD', opens: 'left', locale: {cancelLabel: 'Abbrechen', applyLabel: 'Fertig', fromLabel: 'Von', toLabel: 'Bis', firstDay: 1, daysOfWeek: ['Mo', 'Di', 'Mi', 'Do', 'Fr','Sa', 'So']}}" />
   </div>
   <div id="tickets-buttons" class="btn-group">
     <button type="button"
