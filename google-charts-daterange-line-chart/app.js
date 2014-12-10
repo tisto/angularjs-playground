@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var myApp = angular.module('myApp', ['googlechart', 'daterangepicker']);
+  angular.module('myApp', ['googlechart', 'daterangepicker']);
 
   var chartColorBlue = '#a5bee6';
   var chartColorYellow = '#f0c155';
@@ -13,7 +13,7 @@
   var chartFontSize = 10;
 
 
-  myApp.factory('chartService', ['$http',
+  angular.module('myApp').factory('chartService', ['$http',
     function($http) {
       var getTickets = function(daterange) {
         return $http({
@@ -30,7 +30,7 @@
   ]);
 
 
-  myApp.controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartService',
+  angular.module('myApp').controller('DateRangeLineCharController', ['$scope', '$timeout', 'chartService',
     function($scope, $timeout, chartService) {
 
       // Chart
