@@ -27,7 +27,7 @@
         {"c": [{"v": "13.11.2014"}, {"v": 0}]}
       ]
     };
-    $httpBackend.whenGET('get_tickets?daterange=day').respond(day_tickets);
+    $httpBackend.whenGET('get_tickets?daterange=days').respond(day_tickets);
 
     var day_tickets = {
       "cols": [
@@ -52,7 +52,7 @@
         {"c": [{"v": "17.11.2014"}, {"v": 0}]}
       ]
     };
-    $httpBackend.whenGET('get_tickets?daterange=day&startDate=2014-11-11&endDate=2014-11-17').respond(day_tickets);
+    $httpBackend.whenGET('get_tickets?daterange=days&startDate=2014-11-11&endDate=2014-11-17').respond(day_tickets);
 
     var week_tickets = {
       "cols": [
@@ -77,7 +77,7 @@
         {"c": [{"v": 47}, {"v": 0}]}
       ]
     };
-    $httpBackend.whenGET('get_tickets?daterange=week').respond(week_tickets);
+    $httpBackend.whenGET('get_tickets?daterange=weeks').respond(week_tickets);
 
     var month_tickets = {
       "cols": [
@@ -97,7 +97,7 @@
         {"c": [{"v": "2014, 3"}, {"v": 193}]}
       ]
     };
-    $httpBackend.whenGET('get_tickets?daterange=month').respond(month_tickets);
+    $httpBackend.whenGET('get_tickets?daterange=months').respond(month_tickets);
 
     var year_tickets = {
       "cols": [
@@ -123,7 +123,7 @@
         {"c": [{"v": "2014"}, {"v": 139}]},
       ]
     };
-    $httpBackend.whenGET('get_tickets?daterange=year').respond(year_tickets);
+    $httpBackend.whenGET('get_tickets?daterange=years').respond(year_tickets);
 
     // --- PASS THROUGH TEMPLATES ----------------------------------------------
     var templates_re = new RegExp('.*.html$');

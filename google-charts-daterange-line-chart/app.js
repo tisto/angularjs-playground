@@ -73,7 +73,7 @@
           });
         }, 350);
       };
-      getTickets('day');
+      getTickets('days');
 
       // Set Daterange
       $scope.setDaterange = function(dateRange) {
@@ -84,7 +84,7 @@
         };
         getTickets(dateRange);
       };
-      $scope.setDaterange('day');
+      $scope.setDaterange('days');
 
     }]
   );
