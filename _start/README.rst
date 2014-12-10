@@ -68,7 +68,7 @@ Install Gulp and BrowserSync::
   $ npm install browser-sync gulp --save-dev
 
 
-gulpfile.js::
+Basic gulpfile.js::
 
   var gulp        = require('gulp');
   var browserSync = require('browser-sync');
@@ -82,12 +82,50 @@ gulpfile.js::
       });
   });
 
+More complete gulpfile.js::
+
+  var gulp        = require('gulp');
+  var browserSync = require('browser-sync');
+
+
+  // --- WATCH -----------------------------------------------------------------
+  gulp.task('watch', function() {
+    gulp.watch('**/*.*', ['browser-sync']);
+  });
+
+
+  // --- BROWSER SYNC ----------------------------------------------------------
+  gulp.task('browser-sync', function() {
+      browserSync({
+          server: {
+              baseDir: "./"
+          }
+      });
+  });
+  gulp.task('browser-sync-reload', function () {
+      browserSync.reload();
+  });
+
+
+  // --- DEFAULT ---------------------------------------------------------------
+  gulp.task('default', ['browser-sync'], function () {
+      gulp.watch("*.*", ['browser-sync-reload']);
+  });
+
+
 Run Browser Sync::
 
   $ gulp browser-sync
 
 ..more: http://www.browsersync.io/docs/gulp/
 
+
+Angular
+-------
+
+Install AngularJS::
+
+  $ bower install angularjs --save
 
 Angular Mocks
 -------------
