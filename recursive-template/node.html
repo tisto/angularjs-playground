@@ -1,0 +1,5 @@
+{{ node.title }}
+<ul ng-if="node.children">
+  <li ng-repeat="node in node.children" ng-include="'node.html'">
+</li>
+</ul>

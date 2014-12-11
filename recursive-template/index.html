@@ -6,8 +6,8 @@
   <script src="app.js"></script>
 </head>
 <body>
-  <h1>Recursive Templates</h1>
   <div ng-app="app" ng-controller='AppCtrl'>
+    <h1>Recursive template with inline template</h1>
     <!-- Template -->
     <script type="text/ng-template" id="navigationTree">
       {{ node.title }}
@@ -19,6 +19,10 @@
     <!-- Start Recursion -->
     <ul>
       <li ng-repeat="node in tree" ng-include="'navigationTree'"></li>
+    </ul>
+    <h1>Recursive template with separate template file</h1>
+    <ul>
+      <li ng-repeat="node in tree" ng-include="'node.html'"></li>
     </ul>
   </div>
 </body>
