@@ -23,7 +23,29 @@
         children: []
       }
     ];
-    $httpBackend.whenGET('/tree').respond(tree);
+    $httpBackend.whenGET('/tree/').respond(tree);
+
+    var tree = [
+      {
+        id: 'mercedes',
+        title: 'Mercedes',
+        path: '/cars/mercedes',
+        children: []
+      },
+      {
+        id: 'audi',
+        title: 'Audi',
+        path: '/cars/audi',
+        children: []
+      },
+      {
+        id: 'bmw',
+        title: 'BMW',
+        path: '/cars/bmw',
+        children: []
+      }
+    ];
+    $httpBackend.whenGET('/tree/cars').respond(tree);
 
     // --- PASS THROUGH TEMPLATES ----------------------------------------------
     var templates_re = new RegExp('.*.html$');

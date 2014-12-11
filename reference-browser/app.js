@@ -4,14 +4,38 @@
   angular.module('myApp', []);
 
   angular.module('myApp').controller('TreeController',
-    function($scope) {
+    function($scope, $log, $timeout, treeService) {
+      var timeout;
+      // Load Tree Data
       $scope.tree = [];
+
+      $scope.$watch('current_path', function(newPath) {
+        if (newPath) {
+          if (timeout) $timeout.cancel(timeout);
+          timeout = $timeout(function() {
+            treeService.events(newPath)
+            .success(function(data) {
+              $scope.tree = data;
+            })
+            .error(function(data, status) {
+              alert("ERROR: " + status);
+            });
+          });
+        }
+      });
+
+      $scope.current_path = '/';
+      $scope.loadTreeBranch = function(path) {
+        $scope.current_path = path;
+        $log.debug(path);
+      };
     }
   );
 
   angular.module('myApp').factory('treeService',
-    function($http) {
+    function($http, $log) {
       var runUserRequest = function(path) {
+        $log.debug('GET: /tree' + path);
         return $http({
           method: 'GET',
           url: '/tree' + path
@@ -22,22 +46,6 @@
           return runUserRequest(path);
         }
       };
-    }
-  );
-
-  angular.module('myApp').controller('ServiceController',
-    function($scope, $timeout, treeService) {
-      var timeout;
-      if (timeout) $timeout.cancel(timeout);
-      timeout = $timeout(function() {
-        treeService.events('/')
-        .success(function(data) {
-          $scope.tree = data.data;
-        })
-        .error(function(data, status) {
-          alert("ERROR: " + status);
-        });
-      });
     }
   );
 

@@ -9,7 +9,13 @@
   <script src="mock-backend.js"></script>
 </head>
 <body ng-controller="TreeController">
-  Tree
+  <h4>Tree</h4>
+  <span>Current Path: {{current_path}}</span>
+  <ul>
+    <li ng-repeat="item in tree">
+      <a href="#" ng-click="loadTreeBranch(item.path)">{{item.title}}</a>
+    </li>
+  </ul>
   <pre>{{tree|json}}</pre>
 </body>
 </html>
