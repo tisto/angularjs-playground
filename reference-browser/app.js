@@ -9,6 +9,14 @@
       // Load Tree Data
       $scope.tree = [];
 
+      if (timeout) $timeout.cancel(timeout);
+      timeout = $timeout(function() {
+        treeService.events('/')
+        .success(function(data) {
+          $scope.tree = data;
+        });
+      });
+
       $scope.$watch('current_path', function(newPath) {
         if (newPath) {
           if (timeout) $timeout.cancel(timeout);
@@ -24,7 +32,6 @@
         }
       });
 
-      $scope.current_path = '/';
       $scope.loadTreeBranch = function(path) {
         $scope.current_path = path;
         $log.debug(path);

@@ -11,10 +11,9 @@
 <body ng-controller="TreeController">
   <h4>Tree</h4>
   <span>Current Path: {{current_path}}</span>
+  <!-- Start Recursion -->
   <ul>
-    <li ng-repeat="item in tree">
-      <a href="#" ng-click="loadTreeBranch(item.path)">{{item.title}}</a>
-    </li>
+    <li ng-repeat="node in tree" ng-include="'node.html'"></li>
   </ul>
   <pre>{{tree|json}}</pre>
 </body>

@@ -25,7 +25,7 @@
     ];
     $httpBackend.whenGET('/tree/').respond(tree);
 
-    var tree = [
+    var cars_subtree = [
       {
         id: 'mercedes',
         title: 'Mercedes',
@@ -45,7 +45,7 @@
         children: []
       }
     ];
-    $httpBackend.whenGET('/tree/cars').respond(tree);
+    $httpBackend.whenGET('/tree/cars').respond(cars_subtree);
 
     // --- PASS THROUGH TEMPLATES ----------------------------------------------
     var templates_re = new RegExp('.*.html$');
