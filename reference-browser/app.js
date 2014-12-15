@@ -29,7 +29,7 @@
       var _ref;
       $scope.selected_path = branch.path;
       $scope.selected_uuid = branch.uuid;
-      if ((_ref = branch.data) != null ? _ref.description : void 0) {
+      if ((_ref = branch.data) != null ? _ref.description: void 0) {
         return $scope.output += '(' + branch.data.description + ')';
       }
       // load children if they haven't been already loaded.
@@ -46,8 +46,6 @@
         });
       }
     };
-
-
 
     $timeout(function() {
       treeService.getTreeData($scope.selected_path)
