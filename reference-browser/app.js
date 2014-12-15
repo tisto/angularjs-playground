@@ -24,7 +24,7 @@
     var apple_selected, tree, treedata_avm, treedata_geography;
     $scope.my_tree_handler = function(branch) {
       var _ref;
-      $scope.output = "You selected: " + branch.path + " | UUID: " + branch.uuid;
+      $scope.output = "PATH: " + branch.path + " | UUID: " + branch.uuid;
       if ((_ref = branch.data) != null ? _ref.description : void 0) {
         return $scope.output += '(' + branch.data.description + ')';
       }
@@ -34,7 +34,6 @@
           treeService.events(branch.path)
           .success(function(data) {
             angular.forEach(data, function(value, key) {
-              console.log(key + ': ' + value.title);
               var b;
               b = tree.get_selected_branch();
               return tree.add_branch(b, value);
@@ -51,7 +50,6 @@
       treeService.events('/')
       .success(function(data) {
         $scope.my_data = data;
-        console.log("Set tree data");
       });
     });
 
@@ -59,4 +57,4 @@
 
   });
 
-}).call(this);
+})();
