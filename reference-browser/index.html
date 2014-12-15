@@ -16,6 +16,11 @@
   <div style="width:250px;background:whitesmoke;border:1px solid lightgray;border-radius:5px;">
     <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="0" initial-selection="Cars"></abn-tree>
   </div>
-  <div style="width:300px" class="alert alert-warning">{{ output }}</div>
+  <br />
+  <label>Selected Path:</label><br />
+  <input ng-model="selected_path" />
+  <br />
+  <label>Selected UUID:</label><br />
+  <input ng-model="selected_uuid" />
 </body>
 </html>
