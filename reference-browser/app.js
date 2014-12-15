@@ -1,9 +1,9 @@
 (function() {
-  var app;
+  'use strict';
 
-  app = angular.module('AbnTest', ['angularBootstrapNavTree', 'ngAnimate']);
+  angular.module('ReferenceBrowserApp', ['angularBootstrapNavTree', 'ngAnimate']);
 
-  angular.module('AbnTest').factory('treeService',
+  angular.module('ReferenceBrowserApp').factory('treeService',
     function($http, $log) {
       var runUserRequest = function(path) {
         $log.debug('GET: /tree' + path);
@@ -20,7 +20,7 @@
     }
   );
 
-  app.controller('ReferenceBrowserController', function($scope, $timeout) {
+  angular.module('ReferenceBrowserApp').controller('ReferenceBrowserController', function($scope, $timeout) {
     var apple_selected, tree, treedata_avm, treedata_geography;
     $scope.my_tree_handler = function(branch) {
       var _ref;
