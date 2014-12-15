@@ -6,6 +6,7 @@
     var tree = [
       {
         id: 'cars',
+        uuid: 1,
         title: 'Cars',
         label: 'Cars',
         path: '/cars',
@@ -13,6 +14,7 @@
       },
       {
         id: 'colors',
+        uuid: 2,
         title: 'Colors',
         label: 'Colors',
         path: '/colors',
@@ -20,6 +22,7 @@
       },
       {
         id: 'fruits',
+        uuid: 3,
         title: 'Fruits',
         label: 'Fruits',
         path: '/fruits',
@@ -31,6 +34,7 @@
     var cars_subtree = [
       {
         id: 'mercedes',
+        uuid: 11,
         title: 'Mercedes',
         label: 'Mercedes',
         path: '/cars/mercedes',
@@ -38,6 +42,7 @@
       },
       {
         id: 'audi',
+        uuid: 12,
         title: 'Audi',
         label: 'Audi',
         path: '/cars/audi',
@@ -45,6 +50,7 @@
       },
       {
         id: 'bmw',
+        uuid: 13,
         title: 'BMW',
         label: 'BMW',
         path: '/cars/bmw',
@@ -53,7 +59,11 @@
     ];
     $httpBackend.whenGET('/tree/cars').respond(cars_subtree);
 
-    // --- PASS THROUGH TEMPLATES ----------------------------------------------
+    // --- UNKNOWN TREE PATHS ------------------------------------------------
+    var tree_unknown = new RegExp('/tree/.*$');
+    $httpBackend.whenGET(tree_unknown).respond([]);
+
+    // --- PASS THROUGH TEMPLATES --------------------------------------------
     var templates_re = new RegExp('.*.html$');
     $httpBackend.whenGET(templates_re).passThrough();
 

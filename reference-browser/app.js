@@ -24,22 +24,24 @@
     var apple_selected, tree, treedata_avm, treedata_geography;
     $scope.my_tree_handler = function(branch) {
       var _ref;
-      $scope.output = "You selected: " + branch.path;
+      $scope.output = "You selected: " + branch.path + " | UUID: " + branch.uuid;
       if ((_ref = branch.data) != null ? _ref.description : void 0) {
         return $scope.output += '(' + branch.data.description + ')';
       }
-      $timeout(function() {
-        treeService.events(branch.path)
-        .success(function(data) {
-          angular.forEach(data, function(value, key) {
-            console.log(key + ': ' + value.title);
-            var b;
-            b = tree.get_selected_branch();
-            return tree.add_branch(b, value);
+      // load children if they haven't been already loaded.
+      if (branch.children.length === 0) {
+        $timeout(function() {
+          treeService.events(branch.path)
+          .success(function(data) {
+            angular.forEach(data, function(value, key) {
+              console.log(key + ': ' + value.title);
+              var b;
+              b = tree.get_selected_branch();
+              return tree.add_branch(b, value);
+            });
           });
-
         });
-      });
+      }
     };
     $scope.new_node = '';
 
