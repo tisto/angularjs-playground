@@ -1,13 +1,7 @@
 (function() {
-  var app, deps;
+  var app;
 
-  deps = ['angularBootstrapNavTree'];
-
-  if (angular.version.full.indexOf("1.2") >= 0) {
-    deps.push('ngAnimate');
-  }
-
-  app = angular.module('AbnTest', deps);
+  app = angular.module('AbnTest', ['angularBootstrapNavTree', 'ngAnimate']);
 
   angular.module('AbnTest').factory('treeService',
     function($http, $log) {
@@ -26,7 +20,7 @@
     }
   );
 
-  app.controller('AbnTestController', function($scope, $timeout) {
+  app.controller('ReferenceBrowserController', function($scope, $timeout) {
     var apple_selected, tree, treedata_avm, treedata_geography;
     $scope.my_tree_handler = function(branch) {
       var _ref;
