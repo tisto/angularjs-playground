@@ -13,10 +13,8 @@
 
 </head>
 <body ng-controller="ReferenceBrowserController" style="margin:20px">
-  <button ng-click="try_adding_a_branch()" class="btn btn-default btn-sm">Add Branch</button>
   <div style="width:250px;background:whitesmoke;border:1px solid lightgray;border-radius:5px;">
-    <span ng-if="doing_async">...loading...</span>
-    <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Granny Smith"></abn-tree>
+    <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="0" initial-selection="Cars"></abn-tree>
   </div>
   <div style="width:300px" class="alert alert-warning">{{ output }}</div>
 </body>
