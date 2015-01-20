@@ -1,24 +1,14 @@
 <!doctype html>
-<html ng-app="app">
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css" />
-  <style type="text/css">
-    .grid {
-      width: 500px;
-      height: 250px;
-    }
-  </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-touch.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js"></script>
-  <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
-  <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+  <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+  <script src="bower_components/angularjs/angular.min.js"></script>
   <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
   <script src="app.js"></script>
 </head>
 <body>
-  <div ng-controller="MainCtrl">
+  <div ng-controller="TableController">
     <div id="grid1" ui-grid="{ data: myData }" class="grid"></div>
   </div>
 </body>
