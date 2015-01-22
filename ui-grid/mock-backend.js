@@ -291,6 +291,21 @@
         }
       },
     ];
+    for(var i=26; i < 10000;i++) {
+      users.push(
+        {
+          "id": i,
+          "name": "John Doe",
+          "gender": "male",
+          "age": 42,
+          "address":
+          {
+            "state": "Colorado",
+            "city": "Loretto"
+          }
+        }
+      );
+    }
     $httpBackend.whenGET('/users/').respond(users);
 
     // --- PASS THROUGH TEMPLATES --------------------------------------------

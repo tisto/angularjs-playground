@@ -21,7 +21,6 @@
   angular.module('myApp').controller('TableController',
     function($scope, $timeout, usersService) {
       $scope.gridOptions = {};
-
       $scope.gridOptions.columnDefs = [
         {name: 'id'},
         {name: 'name'},
