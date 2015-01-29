@@ -5,17 +5,6 @@
 
     var users = [
       {
-        "id": 0,
-        "name": "Ramsey Cummings",
-        "gender": "male",
-        "age": 52,
-        "address":
-        {
-          "state": "South Carolina",
-          "city": "Glendale"
-        }
-      },
-      {
         "id": 1,
         "name": "Stefanie Huff",
         "gender": "female",
@@ -116,15 +105,19 @@
       },
       {
         "id": 10,
-        "name": "Thompson Hays",
+        "name": "Ramsey Cummings",
         "gender": "male",
-        "age": 38,
+        "age": 52,
         "address":
         {
-          "state": "Nevada",
-          "city": "Kipp"
+          "state": "South Carolina",
+          "city": "Glendale"
         }
       },
+    ];
+    $httpBackend.whenGET('/users?batch_start=0&batch_size=10').respond(users);
+
+    users = [
       {
         "id": 11,
         "name": "Hallie Mack",
@@ -234,64 +227,12 @@
           "state": "Arkansas",
           "city": "Monument"
         }
-      },
-      {
-        "id": 21,
-        "name": "Wright Kline",
-        "gender": "male",
-        "age": 41,
-        "address":
-        {
-          "state": "Missouri",
-          "city": "Bynum"
-        }
-      },
-      {
-        "id": 22,
-        "name": "Lula Morgan",
-        "gender": "female",
-        "age": 52,
-        "address":
-        {
-          "state": "Oregon",
-          "city": "Mapletown"
-        }
-      },
-      {
-        "id": 23,
-        "name": "Kay Mendez",
-        "gender": "female",
-        "age": 50,
-        "address":
-        {
-          "state": "Michigan",
-          "city": "Twilight"
-        }
-      },
-      {
-        "id": 24,
-        "name": "Mona Maddox",
-        "gender": "female",
-        "age": 35,
-        "address":
-        {
-          "state": "Wyoming",
-          "city": "Wilmington"
-        }
-      },
-      {
-        "id": 25,
-        "name": "Fulton Velez",
-        "gender": "male",
-        "age": 66,
-        "address":
-        {
-          "state": "Colorado",
-          "city": "Loretto"
-        }
-      },
+      }
     ];
-    for(var i=26; i < 10000;i++) {
+    $httpBackend.whenGET('/users?batch_start=10&batch_size=10').respond(users);
+
+    users = [];
+    for(var i=21; i <= 30; i++) {
       users.push(
         {
           "id": i,
@@ -306,7 +247,44 @@
         }
       );
     }
-    $httpBackend.whenGET('/users/').respond(users);
+    $httpBackend.whenGET('/users?batch_start=20&batch_size=10').respond(users);
+
+    users = [];
+    for(var i=31; i <= 40; i++) {
+      users.push(
+        {
+          "id": i,
+          "name": "John Doe",
+          "gender": "male",
+          "age": 42,
+          "address":
+          {
+            "state": "Colorado",
+            "city": "Loretto"
+          }
+        }
+      );
+    }
+    $httpBackend.whenGET('/users?batch_start=30&batch_size=10').respond(users);
+
+    users = [];
+    for(var i=41; i <= 50; i++) {
+      users.push(
+        {
+          "id": i,
+          "name": "John Doe",
+          "gender": "male",
+          "age": 42,
+          "address":
+          {
+            "state": "Colorado",
+            "city": "Loretto"
+          }
+        }
+      );
+    }
+    $httpBackend.whenGET('/users?batch_start=40&batch_size=10').respond(users);
+
 
     // --- PASS THROUGH TEMPLATES --------------------------------------------
     var templates_re = new RegExp('.*.html$');

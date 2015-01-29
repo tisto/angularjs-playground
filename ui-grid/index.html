@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
   <script src="bower_components/angularjs/angular.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.min.js"></script>
   <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
   <script src="app.js"></script>
   <!-- Backend Mocks -->
@@ -12,7 +14,7 @@
 </head>
 <body>
   <div ng-controller="TableController">
-    <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+    <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-infinite-scroll></div>
   </div>
 </body>
 </html>
