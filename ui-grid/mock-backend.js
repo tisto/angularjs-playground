@@ -231,60 +231,6 @@
     ];
     $httpBackend.whenGET('/users?batch_start=10&batch_size=10').respond(users);
 
-    users = [];
-    for(var i=21; i <= 30; i++) {
-      users.push(
-        {
-          "id": i,
-          "name": "John Doe",
-          "gender": "male",
-          "age": 42,
-          "address":
-          {
-            "state": "Colorado",
-            "city": "Loretto"
-          }
-        }
-      );
-    }
-    $httpBackend.whenGET('/users?batch_start=20&batch_size=10').respond(users);
-
-    users = [];
-    for(var i=31; i <= 40; i++) {
-      users.push(
-        {
-          "id": i,
-          "name": "John Doe",
-          "gender": "male",
-          "age": 42,
-          "address":
-          {
-            "state": "Colorado",
-            "city": "Loretto"
-          }
-        }
-      );
-    }
-    $httpBackend.whenGET('/users?batch_start=30&batch_size=10').respond(users);
-
-    users = [];
-    for(var i=41; i <= 50; i++) {
-      users.push(
-        {
-          "id": i,
-          "name": "John Doe",
-          "gender": "male",
-          "age": 42,
-          "address":
-          {
-            "state": "Colorado",
-            "city": "Loretto"
-          }
-        }
-      );
-    }
-    $httpBackend.whenGET('/users?batch_start=40&batch_size=10').respond(users);
-
     var users_re = new RegExp(/\/users\?batch_start=(\d*)\&batch_size=(\d*)*/);
     $httpBackend.whenGET(users_re).respond(
       function(method, url, data, headers) {
