@@ -4,15 +4,15 @@
 
   angular.module('myApp').factory('usersService',
     function($http) {
-      var runUserRequest = function(batch_start, batch_size) {
+      var getUsersRequest = function(batch_start, batch_size) {
         return $http({
           method: 'GET',
           url: '/users?batch_start=' + batch_start + '&batch_size=' + batch_size
         });
       };
       return {
-        events: function(batch_start, batch_size) {
-          return runUserRequest(batch_start, batch_size);
+        users: function(batch_start, batch_size) {
+          return getUsersRequest(batch_start, batch_size);
         }
       };
     }
@@ -37,9 +37,8 @@
       var timeout;
       if (timeout) $timeout.cancel(timeout);
       timeout = $timeout(function() {
-        usersService.events(batch_start, batch_size)
+        usersService.users(batch_start, batch_size)
         .success(function(data, status) {
-          console.log('batch: ' + batch_start + ' / ' + batch_size);
           $scope.gridOptions.data = data;
           batch_start = batch_start + batch_size;
         });
@@ -47,12 +46,13 @@
 
       $scope.gridOptions.onRegisterApi = function(gridApi){
         gridApi.infiniteScroll.on.needLoadMoreData($scope,function(){
-          usersService.events(batch_start, batch_size)
+          usersService.users(batch_start, batch_size)
           .success(function(data, status) {
-            console.log('batch: ' + batch_start + ' / ' + batch_size);
             $scope.gridOptions.data = $scope.gridOptions.data.concat(data);
             gridApi.infiniteScroll.dataLoaded();
             batch_start = batch_start + batch_size;
+          }).error(function() {
+            gridApi.infiniteScroll.dataLoaded();
           });
         });
       };

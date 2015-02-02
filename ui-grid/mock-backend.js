@@ -285,6 +285,29 @@
     }
     $httpBackend.whenGET('/users?batch_start=40&batch_size=10').respond(users);
 
+    var users_re = new RegExp(/\/users\?batch_start=(\d*)\&batch_size=(\d*)*/);
+    $httpBackend.whenGET(users_re).respond(
+      function(method, url, data, headers) {
+        console.log("GET -> " + url);
+        users = [];
+        for(var i=51; i <= 60; i++) {
+          users.push(
+            {
+              "id": i,
+              "name": "John Doe",
+              "gender": "male",
+              "age": 42,
+              "address":
+              {
+                "state": "Colorado",
+                "city": "Loretto"
+              }
+            }
+          );
+        }
+        return users;
+      }
+    );
 
     // --- PASS THROUGH TEMPLATES --------------------------------------------
     var templates_re = new RegExp('.*.html$');
