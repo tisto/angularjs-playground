@@ -288,15 +288,18 @@
     var users_re = new RegExp(/\/users\?batch_start=(\d*)\&batch_size=(\d*)*/);
     $httpBackend.whenGET(users_re).respond(
       function(method, url, data, headers) {
-        console.log("GET -> " + url);
+        var myRegexp = /\/users\?batch_start=(\d*)\&batch_size=(\d*)*/;
+        var match = myRegexp.exec(url);
+        var batch_from = parseInt(match[1]) + 1;
+        var batch_to = parseInt(match[1]) + parseInt(match[2]);
         users = [];
-        for(var i=51; i <= 60; i++) {
+        for(var i=batch_from; i <= batch_to; i++) {
           users.push(
             {
               "id": i,
               "name": "John Doe",
               "gender": "male",
-              "age": 42,
+              "age": Math.floor((Math.random() * 100) + 1),
               "address":
               {
                 "state": "Colorado",
@@ -305,7 +308,7 @@
             }
           );
         }
-        return users;
+        return [200, users];
       }
     );
 
