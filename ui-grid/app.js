@@ -21,9 +21,20 @@
   angular.module('myApp').controller('TableController',
     function($scope, $timeout, usersService) {
 
+      $scope.$scope = $scope;
+
+      $scope.showDetails = function(row){
+        alert(row.entity.id);
+      };
+
+      function rowTemplate() {
+        return '<div ng-click="getExternalScopes().showDetails(row)" ng-repeat="col in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ui-grid-cell></div>';
+      }
+
       // grid options
       $scope.gridOptions = {};
       $scope.gridOptions.infiniteScrollPercentage = 15;
+      $scope.gridOptions.rowTemplate = rowTemplate();
       $scope.gridOptions.columnDefs = [
         {name: 'id'},
         {name: 'name'},
