@@ -24,6 +24,7 @@
       return Math.floor((Math.random() * 100) + 1);
     }
 
+    // --- USERS -------------------------------------------------------------
     var users_re = new RegExp(/\/users\?batch_start=(\d*)\&batch_size=(\d*)*/);
     $httpBackend.whenGET(users_re).respond(
       function(method, url, data, headers) {
@@ -44,6 +45,23 @@
           );
         }
         return [200, users];
+      }
+    );
+
+    // --- USER --------------------------------------------------------------
+    var users_re = new RegExp(/\/user\?id=(\d*)*/);
+    $httpBackend.whenGET(users_re).respond(
+      function(method, url, data, headers) {
+        var myRegexp = /\/user\?id=(\d*)*/;
+        var match = myRegexp.exec(url);
+        var user_id = parseInt(match[1]) + 1;
+        var user = {
+          "id": 1,
+          "name": get_random_name(),
+          "gender": "male",
+          "age": get_random_age(),
+        };
+        return [200, user];
       }
     );
 

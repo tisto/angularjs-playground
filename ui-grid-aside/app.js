@@ -3,6 +3,8 @@
 
   angular.module('myApp', [
     'ngTouch',
+    'ngAnimate',
+    'mgcrea.ngStrap',
     'ui.grid',
     'ui.grid.autoResize',
     'ui.grid.infiniteScroll'
@@ -16,21 +18,36 @@
           url: '/users?batch_start=' + batch_start + '&batch_size=' + batch_size
         });
       };
+      var getUserRequest = function(user_id) {
+        return $http({
+          method: 'GET',
+          url: '/user?id=' + user_id
+        });
+      };
       return {
         users: function(batch_start, batch_size) {
           return getUsersRequest(batch_start, batch_size);
+        },
+        user: function(user_id) {
+          return getUserRequest(user_id);
         }
       };
     }
   );
 
   angular.module('myApp').controller('TableController',
-    function($scope, $timeout, usersService) {
+    function($scope, $timeout, $aside, usersService) {
 
       $scope.$scope = $scope;
 
       $scope.showDetails = function(row){
-        alert(row.entity.id);
+        $scope.currentReference = row.entity;
+        var referenceAside = $aside({
+          scope: $scope,
+          contentTemplate: 'aside.tpl.html',
+          title: row.entity.name,
+          show: true
+        });
       };
 
       function rowTemplate() {
