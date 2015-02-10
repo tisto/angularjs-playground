@@ -3,18 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+  <style type="text/css">
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #grid1 {
+      height: 100%;
+    }
+  </style>
   <script src="bower_components/angularjs/angular.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
   <script src="app.js"></script>
   <!-- Backend Mocks -->
   <script src="bower_components/angular-mocks/angular-mocks.js"></script>
   <script src="mock-backend.js"></script>
 </head>
-<body>
-  <div ng-controller="TableController">
-    <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-infinite-scroll external-scopes="$scope"></div>
-  </div>
+<body ng-controller="TableController">
+  <div id="grid1"
+       class="grid"
+       ui-grid="gridOptions"
+       ui-grid-auto-resize
+       ui-grid-infinite-scroll
+       external-scopes="$scope"></div>
 </body>
 </html>

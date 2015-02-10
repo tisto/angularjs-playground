@@ -1,6 +1,11 @@
 (function() {
   'use strict';
-  angular.module('myApp', ['ngTouch', 'ui.grid', 'ui.grid.infiniteScroll']);
+  angular.module('myApp', [
+    'ngTouch',
+    'ui.grid',
+    'ui.grid.autoResize',
+    'ui.grid.infiniteScroll'
+  ]);
 
   angular.module('myApp').factory('usersService',
     function($http) {
@@ -38,12 +43,11 @@
       $scope.gridOptions.columnDefs = [
         {name: 'id'},
         {name: 'name'},
-        {name: 'age'},
-        {name: 'address.city'}
+        {name: 'age'}
       ];
 
       var batch_start = 0;
-      var batch_size = 10;
+      var batch_size = 50;
 
       var timeout;
       if (timeout) $timeout.cancel(timeout);
