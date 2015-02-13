@@ -24,7 +24,7 @@
   );
 
   angular.module('myApp').controller('TableController',
-    function($scope, $timeout, usersService) {
+    function($scope, $timeout, usersService, uiGridConstants) {
 
       $scope.$scope = $scope;
 
@@ -45,6 +45,7 @@
         {name: 'name'},
         {name: 'age'}
       ];
+      $scope.gridOptions.enableHorizontalScrollbar = uiGridConstants.scrollbars.NEVER;
 
       var batch_size = 50;
 
