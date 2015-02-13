@@ -64,6 +64,12 @@
             gridApi.infiniteScroll.dataLoaded();
           });
         });
+        gridApi.infiniteScroll.on.needLoadMoreDataTop($scope,function(){
+          // We never load data to the top, but we must 'acknowledge'
+          // the event, or we lock up scolling completely, once
+          // we reach the top of the table, and the event triggers.
+          gridApi.infiniteScroll.dataLoaded();
+        });
       };
     }
   );
