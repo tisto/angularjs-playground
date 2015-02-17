@@ -24,7 +24,7 @@
   );
 
   angular.module('myApp').controller('TableController',
-    function($scope, $timeout, usersService) {
+    function($scope, $timeout, usersService, uiGridConstants) {
 
       $scope.$scope = $scope;
 
@@ -45,30 +45,30 @@
         {name: 'name'},
         {name: 'age'}
       ];
+      $scope.gridOptions.enableHorizontalScrollbar = uiGridConstants.scrollbars.NEVER;
 
-      var batch_start = 0;
       var batch_size = 50;
 
-      var timeout;
-      if (timeout) $timeout.cancel(timeout);
-      timeout = $timeout(function() {
-        usersService.users(batch_start, batch_size)
-        .success(function(data, status) {
-          $scope.gridOptions.data = data;
-          batch_start = batch_start + batch_size;
-        });
-      }, 350);
+      usersService.users(0, batch_size)
+      .success(function(data, status) {
+        $scope.gridOptions.data = data;
+      });
 
       $scope.gridOptions.onRegisterApi = function(gridApi){
         gridApi.infiniteScroll.on.needLoadMoreData($scope,function(){
-          usersService.users(batch_start, batch_size)
+          usersService.users($scope.gridOptions.data.length, batch_size)
           .success(function(data, status) {
             $scope.gridOptions.data = $scope.gridOptions.data.concat(data);
             gridApi.infiniteScroll.dataLoaded();
-            batch_start = batch_start + batch_size;
           }).error(function() {
             gridApi.infiniteScroll.dataLoaded();
           });
+        });
+        gridApi.infiniteScroll.on.needLoadMoreDataTop($scope,function(){
+          // We never load data to the top, but we must 'acknowledge'
+          // the event, or we lock up scolling completely, once
+          // we reach the top of the table, and the event triggers.
+          gridApi.infiniteScroll.dataLoaded();
         });
       };
     }
