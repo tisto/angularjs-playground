@@ -1,0 +1,111 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="animations.css"/>
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="SignUpController as ctrl">
+  <div class="signup-wrapper">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo"/>
+    </div>
+    <div class="alert alert-success message-animation" role="alert" ng-if="ctrl.showSubmittedPrompt">
+      Thank you! Your account has been created.
+    </div>
+    <form name="ctrl.signupForm" ng-submit="ctrl.signup()" novalidate>
+      <div class="form-group" ng-class="{'has-error':ctrl.hasErrorClass('email')}">
+        <label for="email">Email</label>
+        <input id="email" name="email" class="form-control" type="email" required
+             ng-model="ctrl.newCustomer.email" ng-model-options="{ updateOn : 'default blur' }"
+             ng-focus="ctrl.toggleEmailPrompt(true)" ng-blur="ctrl.toggleEmailPrompt(false)"/>
+
+
+        <div class="my-messages">
+          <div class="prompt message-animation" ng-if="ctrl.showEmailPrompt">
+            What's your email address?
+          </div>
+        </div>
+
+        <div class="my-messages" ng-messages="ctrl.signupForm.email.$error" ng-if="ctrl.showMessages('email')">
+          <div class="message-animation" ng-message="required">
+            <strong>This field is required.</strong>
+          </div>
+          <div class="message-animation" ng-message="email">
+            <strong>Please format your email correctly.</strong>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group" ng-class="{'has-error':ctrl.hasErrorClass('userName')}">
+        <label for="userName">Username</label>
+        <input id="userName" name="userName" class="form-control" type="text" required
+             ng-model="ctrl.newCustomer.userName" ng-model-options="{ updateOn : 'default blur' }"
+             ng-focus="ctrl.toggleUsernamePrompt(true)" ng-blur="ctrl.toggleUsernamePrompt(false)"/>
+
+        <div class="my-messages">
+          <div class="prompt message-animation" ng-if="ctrl.showUsernamePrompt">
+            Choose a username that contains only letters and numbers, or use your email address.
+          </div>
+        </div>
+
+        <div class="my-messages" ng-messages="ctrl.signupForm.userName.$error" ng-if="ctrl.showMessages('userName')">
+          <div class="message-animation" ng-message="required">
+            <strong>This field is required.</strong>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+
+        <div class="input-group" ng-class="{'has-error':ctrl.hasErrorClass('password')}">
+          <input id="password" name="password" class="form-control" required
+               type="{{ctrl.getPasswordType()}}"
+               ng-model-options="{ updateOn : 'default blur' }"
+               ng-model="ctrl.newCustomer.password"
+               validate-password-characters/>
+          <span class="input-group-addon">
+            <input type="checkbox" ng-model="ctrl.signupForm.showPassword"> Show
+          </span>
+        </div>
+
+        <div class="my-messages" ng-messages="ctrl.signupForm.password.$error" ng-if="ctrl.showMessages('password')">
+          <div class="message-animation" ng-message="required">
+            <strong>This field is required.</strong>
+          </div>
+        </div>
+
+        <div class="password-requirements" ng-if="!ctrl.signupForm.password.$valid">
+          <ul class="float-left">
+            <li ng-class="{'completed':!ctrl.signupForm.password.$error.lowerCase}">One lowercase character</li>
+            <li ng-class="{'completed':!ctrl.signupForm.password.$error.upperCase}">One uppercase character</li>
+            <li ng-class="{'completed':!ctrl.signupForm.password.$error.number}">One number</li>
+          </ul>
+          <ul class="selfclear clearfix">
+            <li ng-class="{'completed':!ctrl.signupForm.password.$error.specialCharacter}">One special character</li>
+            <li ng-class="{'completed':!ctrl.signupForm.password.$error.eightCharacters}">Eight characters minimum</li>
+          </ul>
+        </div>
+
+        <div class="alert alert-success message-animation" role="alert" ng-if="ctrl.signupForm.password.$valid">
+          Your password is secure and you are good to go!
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Create My Account</button>
+    </form>
+  </div>
+
+</body>
+</html>
+

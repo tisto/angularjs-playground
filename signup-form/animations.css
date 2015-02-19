@@ -1,0 +1,27 @@
+.my-messages {
+    position: relative;
+}
+
+.message-animation {
+    transition: 0.2s ease-in-out all;
+}
+
+.message-animation.ng-enter.ng-enter-active {
+    opacity: 1;
+    margin-top: 0;
+}
+
+.message-animation.ng-enter {
+    opacity: 0;
+    margin-top: -20px;
+}
+
+.message-animation.ng-leave {
+    opacity: 1;
+    margin-top: 0;
+}
+
+.message-animation.ng-leave-active {
+    opacity: 0;
+    margin-top: -20px;
+}

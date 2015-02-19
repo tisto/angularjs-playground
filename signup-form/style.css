@@ -1,0 +1,122 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.signup-wrapper {
+    top: 36px;
+    max-width: 430px;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signup-wrapper .alert {
+    margin-top: 10px;
+}
+
+.signup-wrapper input[text] {
+    padding: 0 .4em 0 .4em;
+    margin-bottom: 2em;
+    vertical-align: middle;
+    border-radius: 3px;
+    min-width: 50px;
+    max-width: 550px;
+    width: 100%;
+    min-height: 36px;
+    background-color: #fff;
+    border: 3px solid #c9c9c9 !important;
+}
+
+.signup-wrapper label {
+    color: #595959;
+    font-weight: 500;
+    display: block;
+    max-width: 550px;
+    padding-bottom: .4em;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.prompt {
+    margin-top: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #959595;
+}
+
+.logo {
+    position: relative;
+    height: 46px;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    z-index: 1;
+}
+
+.float-left {
+    float: left;
+}
+
+.password-requirements {
+    margin-top: 10px;
+}
+
+.password-requirements .selfclear {
+    margin-left: 20px;
+}
+
+.password-requirements ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.password-requirements ul:first-child {
+    margin-right: 15px;
+}
+
+.password-requirements ul li:before {
+    position: relative;
+    top: -1px;
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 6px;
+    margin-right: 10px;
+    border-radius: 8px;
+    background: #52bad5;
+}
+
+.password-requirements ul li.completed {
+    opacity: .5;
+}
+
+.btn-primary {
+    color: #fff !important;
+    padding: 10px 30px !important;
+    background-color: #40A3FD !important;
+    border-color: #0086FC;
+}
+
+.btn-primary:hover {
+    background-color: #4F94D3 !important;
+}
+
+
+div[ng-messages] {
+    margin-top: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #FF0000;
+}
