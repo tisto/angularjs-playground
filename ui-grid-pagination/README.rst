@@ -23,27 +23,3 @@ Click Row Action
 
 
 https://technpol.wordpress.com/2014/08/23/upgrading-to-ng-grid-3-0-ui-grid/
-
-
-Pagination
-----------
-
-app.js::
-
-    var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination']);
-
-    angular.module('myApp').controller('TableController',
-      function($scope, $timeout, usersService) {
-
-        ...
-
-        $scope.gridOptions.onRegisterApi = function (gridApi) {
-          $scope.gridApi1 = gridApi;
-        };
-
-      }
-    }
-
-index.html::
-
-    <div ui-grid="gridOptions1" ui-grid-pagination class="grid"></div>
