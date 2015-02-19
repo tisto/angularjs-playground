@@ -28,13 +28,14 @@
       $scope.$scope = $scope;
 
       // grid options
-      $scope.gridOptions = {};
-      $scope.gridOptions.paginationPageSize = 25;
-      $scope.gridOptions.columnDefs = [
-        {name: 'id'},
-        {name: 'name'},
-        {name: 'age'}
-      ];
+      $scope.gridOptions = {
+        paginationPageSize: 25,
+        columnDefs: [
+          {name: 'id'},
+          {name: 'name'},
+          {name: 'age'}
+        ],
+      };
 
       var batch_size = 50;
 

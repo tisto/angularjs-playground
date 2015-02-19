@@ -11,7 +11,8 @@
       overflow: hidden;
     }
     #grid1 {
-      width: 90%;
+      width: 95%;
+      margin: 20px auto;
     }
   </style>
   <script src="bower_components/angularjs/angular.min.js"></script>
@@ -29,7 +30,7 @@
        ui-grid="gridOptions"
        external-scopes="$scope"
        ui-grid-pagination></div>
-   <p>Current page: {{ gridApi1.pagination.getPage() }} of {{ gridApi2.pagination.getTotalPages() }}</p>
+   <p>Current page: {{ gridApi1.pagination.getPage() }} of {{ gridApi1.pagination.getTotalPages() }}</p>
   <button type="button" class="btn btn-success" ng-click="gridApi1.pagination.previousPage()">
   previous page
   </button>
