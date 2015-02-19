@@ -4,14 +4,10 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
   <style type="text/css">
-    body, html {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    #grid1 {
-      height: 100%;
+    #grid {
+      width: 900px;
+      height: 380px;
+      margin: 30px auto;
     }
   </style>
   <script src="bower_components/angularjs/angular.min.js"></script>
@@ -24,9 +20,18 @@
   <script src="mock-backend.js"></script>
 </head>
 <body ng-controller="TableController">
-  <div id="grid1"
+  <div id="grid"
        class="grid"
        ui-grid="gridOptions"
-       external-scopes="$scope"></div>
+       ui-grid-pagination></div>
+  <!--
+  <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
+  <button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
+  previous page
+  </button>
+  <button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">
+  next page
+  </button>
+  -->
 </body>
 </html>

@@ -1,10 +1,14 @@
-var myModule = angular.module('myApp', []);
+(function() {
+  'use strict';
 
-myModule.controller('TextController',
-  function($scope) {
-    'use strict';
-    var someText = {};
-    someText.message = 'Hi angular world!';
-    $scope.someText = someText;
-  }
-);
+  var myModule = angular.module('myApp', []);
+
+  angular.module('myApp').controller('TextController',
+    function($scope) {
+      var someText = {};
+      someText.message = 'Hi angular world!';
+      $scope.someText = someText;
+    }
+  );
+
+})();

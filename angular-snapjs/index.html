@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>@jtrussell</title>
+    <link rel="stylesheet" href="http://rawgit.com/jtrussell/Snap.js/master/snap.css">
+    <link rel="stylesheet" href="http://rawgit.com/jtrussell/angular-snap.js-bower/master/angular-snap.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      snap-content {
+        background-color: white;
+        box-shadow: 0 0 10px #aaa;
+      }
+
+      snap-drawer {
+        padding: 0 15px;
+      }
+  </style>
+  <script src="http://rawgit.com/jtrussell/Snap.js/master/snap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+  <script src="http://rawgit.com/jtrussell/angular-snap.js-bower/master/angular-snap.min.js"></script>
+  <script src="app.js"></script>
+  </head>
+  <body ng-app="jsbin">
+    <snap-drawer>
+      <h3>Hello from drawer</h3>
+      <button snap-close class="btn btn-danger">
+        Close
+      </button>
+    </snap-drawer>
+
+    <snap-content>
+      <div class="container">
+        <h1>Main Content</h1>
+
+        <p class="alert alert-info">
+          This bin uses the <code>Snap.js</code> with <code>Angular Snap</code>.
+        </p>
+
+        <button snap-toggle class="btn btn-primary">
+          Toggle
+        </button>
+      </div>
+    </snap-content>
+  </body>
+</html>

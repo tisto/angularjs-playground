@@ -3,6 +3,7 @@
   angular.module('myApp', [
     'ngTouch',
     'ui.grid',
+    'ui.grid.pagination'
   ]);
 
   angular.module('myApp').factory('usersService',
@@ -27,14 +28,20 @@
       $scope.$scope = $scope;
 
       // grid options
-      $scope.gridOptions = {};
-      $scope.gridOptions.columnDefs = [
-        {name: 'id'},
-        {name: 'name'},
-        {name: 'age'}
-      ];
+      $scope.gridOptions = {
+        paginationPageSize: 25,
+        columnDefs: [
+          {name: 'id'},
+          {name: 'name'},
+          {name: 'age'}
+        ],
+      };
 
       var batch_size = 50;
+
+      $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.gridApi1 = gridApi;
+      };
 
       usersService.users(0, batch_size).success(function(data, status) {
         $scope.gridOptions.data = data;
