@@ -51,7 +51,7 @@
       };
 
       function rowTemplate() {
-        return '<div ng-click="getExternalScopes().showDetails(row)" ng-repeat="col in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ui-grid-cell></div>';
+        return '<div ng-click="grid.appScope.showDetails(row)" ng-repeat="col in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ui-grid-cell></div>';
       }
 
       // grid options
