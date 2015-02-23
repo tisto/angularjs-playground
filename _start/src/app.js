@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var myModule = angular.module('myApp', []);
+  angular.module('myApp', []);
 
   angular.module('myApp').controller('TextController',
     function($scope) {

@@ -13,7 +13,7 @@
 
   // --- HTML ----------------------------------------------------------------
   gulp.task('html', function() {
-    gulp.src('index.html')
+    gulp.src('./src/*.html')
         .pipe(gulp.dest('./dist/'))
         .pipe(browserSync.reload({stream:true, once: true}));
   });
@@ -21,15 +21,15 @@
 
   // --- JAVASCRIPT ----------------------------------------------------------
   gulp.task('js', function() {
-    gulp.src('./src/app.js')
-        .pipe(uglify())
+    gulp.src('./src/*.js')
+        .pipe(uglify({mangle: false}))
         .pipe(gulp.dest('./dist/'))
         .pipe(browserSync.reload({stream:true, once: true}));
   });
 
 
-  // --- LESS ----------------------------------------------------------------
-  gulp.task('less', function() {
+  // --- STYLES --------------------------------------------------------------
+  gulp.task('styles', function() {
     gulp.src('src/less/*.less')
         .pipe(sourcemaps.init())
         .pipe(less())
@@ -42,7 +42,7 @@
   gulp.task('browser-sync', function() {
     browserSync({
       server: {
-        baseDir: "./"
+        baseDir: "./dist"
       }
     });
   });
@@ -53,9 +53,7 @@
 
   // --- WATCH ---------------------------------------------------------------
   gulp.task('watch', function() {
-    gulp.watch('./src/less/*.less', function(){
-      gulp.run('less');
-    });
+    gulp.watch('./src/less/*.less', ['styles']);
     gulp.watch('./src/*.html', function(){
       gulp.run('html');
     });
@@ -67,9 +65,9 @@
 
 
   // --- DEFAULT -------------------------------------------------------------
-  gulp.task('default', ['less', 'html', 'js', 'watch', 'browser-sync'], function() {
+  gulp.task('default', ['styles', 'html', 'js', 'watch', 'browser-sync'], function() {
     gulp.watch("*.*", ['browser-sync-reload']);
-    gulp.watch('src/less/*.less', ['less']);
+    gulp.watch('src/less/*.less', ['styles']);
   });
 
 })();
