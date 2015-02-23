@@ -28,7 +28,6 @@
   <div id="grid1"
        class="grid"
        ui-grid="gridOptions"
-       external-scopes="$scope"
        ui-grid-pagination></div>
    <p>Current page: {{ gridApi1.pagination.getPage() }} of {{ gridApi1.pagination.getTotalPages() }}</p>
   <button type="button" class="btn btn-success" ng-click="gridApi1.pagination.previousPage()">
