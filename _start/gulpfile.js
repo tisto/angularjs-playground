@@ -14,16 +14,16 @@
   // --- HTML ----------------------------------------------------------------
   gulp.task('html', function() {
     gulp.src('index.html')
-        .pipe(gulp.dest('./build/'))
+        .pipe(gulp.dest('./dist/'))
         .pipe(browserSync.reload({stream:true, once: true}));
   });
 
 
   // --- JAVASCRIPT ----------------------------------------------------------
   gulp.task('js', function() {
-    gulp.src('./src/script.js')
+    gulp.src('./src/app.js')
         .pipe(uglify())
-        .pipe(gulp.dest('./build/'))
+        .pipe(gulp.dest('./dist/'))
         .pipe(browserSync.reload({stream:true, once: true}));
   });
 
@@ -33,7 +33,7 @@
     gulp.src('src/less/*.less')
         .pipe(sourcemaps.init())
         .pipe(less())
-        .pipe(gulp.dest('build/css'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.reload({stream:true, once: true}));
   });
 
