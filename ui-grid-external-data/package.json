@@ -1,0 +1,15 @@
+{
+  "name": "ui-grid-external-data",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Timo Stollenwerk",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.2.1",
+    "gulp": "^3.8.11"
+  }
+}
