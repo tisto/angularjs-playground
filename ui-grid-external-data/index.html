@@ -3,10 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <style type="text/css">
+    #pagination {
+      width: 900px;
+      margin: 30px auto;
+    }
     #grid {
       width: 900px;
-      height: 380px;
       margin: 30px auto;
     }
   </style>
@@ -24,14 +28,32 @@
        class="grid"
        ui-grid="gridOptions"
        ui-grid-pagination></div>
-  <!--
-  <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
-  <button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
-  previous page
-  </button>
-  <button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">
-  next page
-  </button>
-  -->
+  <nav id="pagination">
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous" ng-click="gridApi.pagination.previousPage()">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li ng-repeat="page in [] | range:gridApi.pagination.getTotalPages()"
+          ng-click="gridApi.pagination.seek(page + 1)"
+          ng-class="{active: gridOptions.paginationCurrentPage == page + 1}"><a href="#">{{page + 1}}</a></li>
+      <li>
+        <a href="#" aria-label="Next" ng-click="gridApi.pagination.nextPage()">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <li>
+      <h1>{{gridOptions.paginationPageSizes}}</h1>
+        <select class="form-control">
+          <option ng-repeat="option in gridOptions.paginationPageSizes"
+                  ng-class="{selected: gridOptions.paginationPageSize == option}">{{option}}</option>
+        </select>
+      </li>
+      <li>
+        Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}
+      </li>
+    </ul>
+  </nav>
 </body>
 </html>

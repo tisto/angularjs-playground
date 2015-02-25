@@ -36,6 +36,7 @@
       $scope.gridOptions = {
         enableHorizontalScrollbar: 0,
         enableVerticalScrollbar: 0,
+        enablePaginationControls: false,
         paginationPageSizes: [10, 25, 50, 75],
         paginationPageSize: 10,
         useExternalPagination: true,
@@ -75,4 +76,14 @@
 
     }
   );
+
+  angular.module('myApp').filter('range', function() {
+    return function(input, total) {
+      total = parseInt(total);
+      for (var i=0; i<total; i++)
+        input.push(i);
+      return input;
+    };
+  });
+
 })();
