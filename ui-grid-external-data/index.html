@@ -45,9 +45,10 @@
       </li>
       <li>
       <h1>{{gridOptions.paginationPageSizes}}</h1>
-        <select class="form-control">
-          <option ng-repeat="option in gridOptions.paginationPageSizes"
-                  ng-class="{selected: gridOptions.paginationPageSize == option}">{{option}}</option>
+        <select class="form-control"
+                ng-model="gridOptions.paginationPageSize"
+                ng-options="option for option in gridOptions.paginationPageSizes">
+          <option>{{option}}</option>
         </select>
       </li>
       <li>
