@@ -23,8 +23,24 @@
     }
   );
 
+  angular.module('myApp').factory('refreshHeight',
+    function() {
+      return function(paginationOptions) {
+        // resize the grid, if the page size has changed
+        if ($scope.gridApi !== undefined) {
+          // Update row height
+          // (See comment https://github.com/angular-ui/ng-grid/blob/master/src/js/core/directives/ui-grid-render-container.js#L169
+          // where this really should be implemented.)
+          var grid = $scope.gridApi.grid;
+          grid.gridHeight =  grid.options.rowHeight * (paginationOptions.pageSize + 1);
+          grid.buildStyles();
+        }
+      };
+    }
+  );
+
   angular.module('myApp').controller('TableController',
-    function($scope, $timeout, uiGridConstants, usersService) {
+    function($scope, $timeout, uiGridConstants, usersService, refreshHeight) {
 
       var paginationOptions = {
         pageNumber: 1,
@@ -60,8 +76,9 @@
             paginationOptions.pageNumber = newPage;
             paginationOptions.pageSize = pageSize;
             getPage();
+            refreshHeight(paginationOptions);
           });
-        }
+        },
       };
 
       var getPage = function() {
