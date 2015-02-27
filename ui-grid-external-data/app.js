@@ -28,9 +28,10 @@
 
   angular.module('myApp').factory('refreshHeight',
     function() {
-      return function(grid, paginationOptions) {
+      return function(gridApi, paginationOptions) {
         // resize the grid, if the page size has changed
-        if ($scope.gridApi !== undefined) {
+        if (gridApi !== undefined) {
+          var grid = gridApi.grid;
           // Update row height
           // (See comment https://github.com/angular-ui/ng-grid/blob/master/src/js/core/directives/ui-grid-render-container.js#L169
           // where this really should be implemented.)
@@ -78,7 +79,7 @@
             paginationOptions.pageNumber = newPage;
             paginationOptions.pageSize = pageSize;
             getPage();
-            refreshHeight($scope.gridApi.grid, paginationOptions);
+            refreshHeight(gridApi, paginationOptions);
           });
         },
       };
