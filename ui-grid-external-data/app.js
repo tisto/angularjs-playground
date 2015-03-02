@@ -11,11 +11,14 @@
 
   angular.module('myApp').factory('usersService',
     function($http) {
-      var getUsersRequest = function(paginationOptions) {
-        var url = '/users?pageNumber=' + paginationOptions.pageNumber + '&pageSize=' + paginationOptions.pageSize;
+      var getUsersRequest = function(paginationOptions, filterOptions) {
         return $http({
           method: 'GET',
-          url: url
+          url: '/users',
+          params: {
+            'pageNumber': paginationOptions.pageNumber,
+            'pageSize': paginationOptions.pageSize
+          }
         });
       };
       return {
@@ -58,15 +61,18 @@
         enablePaginationControls: true,
         paginationPageSizes: [10, 25, 50, 75],
         paginationPageSize: 10,
+        enableFiltering: true,
         useExternalPagination: true,
         useExternalSorting: true,
+        useExternalFiltering: true,
         columnDefs: [
-          {name: 'id', enableSorting: false},
+          {name: 'id', enableSorting: false, enableFiltering: false},
           {name: 'name'},
-          {name: 'age', enableSorting: false}
+          {name: 'age', enableSorting: false, enableFiltering: false}
         ],
         onRegisterApi: function(gridApi) {
           $scope.gridApi = gridApi;
+          // Sorting
           $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
             if (sortColumns.length === 0) {
               paginationOptions.sort = null;
@@ -75,11 +81,31 @@
             }
             getPage();
           });
+          // Pagination
           gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
             paginationOptions.pageNumber = newPage;
             paginationOptions.pageSize = pageSize;
             getPage();
             refreshHeight(gridApi, paginationOptions);
+          });
+          // Filtering
+          $scope.gridApi.core.on.filterChanged($scope, function() {
+            var grid = this.grid;
+            var filterOptions = [];
+            for (var i = 0; i < grid.columns.length; i++) {
+              if (grid.columns[1].filters.length >= 0) {
+                var filter = grid.columns[i].filters[0];
+                if (filter !== undefined) {
+                  filterOptions += [{
+                    'term': filter.term,
+                    'column': grid.columns[i].name
+                  }];
+                }
+              }
+            }
+            usersService.users(paginationOptions, filterOptions).success(function(data, status) {
+              $scope.gridOptions.data = data.results;
+            });
           });
         },
       };
