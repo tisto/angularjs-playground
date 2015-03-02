@@ -13,6 +13,29 @@
       width: 900px;
       margin: 30px auto;
     }
+    .ui-grid-render-container-body {
+      padding-bottom: 20px;
+    }
+    .ui-grid-pager-panel {
+      position: relative;
+    }
+
+    .ui-grid-pager-control button {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 0px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.42857;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      -moz-user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
   </style>
   <script src="bower_components/angularjs/angular.min.js"></script>
   <script src="bower_components/angular-touch/angular-touch.min.js"></script>
@@ -28,33 +51,5 @@
        class="grid"
        ui-grid="gridOptions"
        ui-grid-pagination></div>
-  <nav id="pagination">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous" ng-click="gridApi.pagination.previousPage()">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li ng-repeat="page in [] | range:gridApi.pagination.getTotalPages()"
-          ng-click="gridApi.pagination.seek(page + 1)"
-          ng-class="{active: gridOptions.paginationCurrentPage == page + 1}"><a href="#">{{page + 1}}</a></li>
-      <li>
-        <a href="#" aria-label="Next" ng-click="gridApi.pagination.nextPage()">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-      <li>
-        <select class="form-control"
-                ng-model="gridOptions.paginationPageSize"
-                ng-options="option for option in gridOptions.paginationPageSizes">
-          <option>{{option}}</option>
-        </select>
-      </li>
-      <li>
-        Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}
-        Total: {{gridOptions.totalItems}}
-      </li>
-    </ul>
-  </nav>
 </body>
 </html>

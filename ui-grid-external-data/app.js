@@ -55,7 +55,7 @@
       $scope.gridOptions = {
         enableHorizontalScrollbar: 0,
         enableVerticalScrollbar: 0,
-        enablePaginationControls: false,
+        enablePaginationControls: true,
         paginationPageSizes: [10, 25, 50, 75],
         paginationPageSize: 10,
         useExternalPagination: true,
