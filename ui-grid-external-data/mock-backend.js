@@ -24,13 +24,14 @@
       return Math.floor((Math.random() * 100) + 1);
     }
 
-    var users_re = new RegExp(/\/users\?pageNumber=(\d*)\&pageSize=(\d*)*/);
+    var users_re = new RegExp(/\/users\?filter=(\S*)\&pageNumber=(\d*)\&pageSize=(\d*)*/);
     $httpBackend.whenGET(users_re).respond(
       function(method, url, data, headers) {
-        var myRegexp = /\/users\?pageNumber=(\d*)\&pageSize=(\d*)*/;
+        var myRegexp = /\/users\?filter=(\S*)\&pageNumber=(\d*)\&pageSize=(\d*)*/;
         var match = myRegexp.exec(url);
-        var pageNumber = parseInt(match[1]);
-        var pageSize = parseInt(match[2]);
+        var filter_string = match[1];
+        var pageNumber = parseInt(match[2]);
+        var pageSize = parseInt(match[3]);
         var users = {
           'results': [],
           'count': 90
@@ -47,6 +48,21 @@
               "age": get_random_age(),
             }
           );
+        }
+        if (filter_string !== '') {
+          users.results = [];
+          var filter = angular.fromJson(decodeURIComponent(filter_string));
+          var random_count = Math.floor((Math.random() * 10) + 1);
+          for (i=0; i < random_count; i++) {
+            users.results.push(
+              {
+                "id": i,
+                "name": filter.name,
+                "gender": "male",
+                "age": get_random_age(),
+              }
+            );
+          }
         }
         return [200, users];
       }

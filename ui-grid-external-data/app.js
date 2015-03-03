@@ -12,18 +12,25 @@
   angular.module('myApp').factory('usersService',
     function($http) {
       var getUsersRequest = function(paginationOptions, filterOptions) {
+        var filter = '';
+        if (filterOptions !== undefined) {
+          filter = angular.toJson(filterOptions);
+        }
+        var params = {
+          'pageNumber': paginationOptions.pageNumber,
+          'pageSize': paginationOptions.pageSize,
+          'filter': filter
+        };
+
         return $http({
           method: 'GET',
           url: '/users',
-          params: {
-            'pageNumber': paginationOptions.pageNumber,
-            'pageSize': paginationOptions.pageSize
-          }
+          params: params
         });
       };
       return {
-        users: function(paginationOptions) {
-          return getUsersRequest(paginationOptions);
+        users: function(paginationOptions, filterOptions) {
+          return getUsersRequest(paginationOptions, filterOptions);
         }
       };
     }
@@ -91,15 +98,12 @@
           // Filtering
           $scope.gridApi.core.on.filterChanged($scope, function() {
             var grid = this.grid;
-            var filterOptions = [];
+            var filterOptions = {};
             for (var i = 0; i < grid.columns.length; i++) {
               if (grid.columns[1].filters.length >= 0) {
                 var filter = grid.columns[i].filters[0];
                 if (filter !== undefined) {
-                  filterOptions += [{
-                    'term': filter.term,
-                    'column': grid.columns[i].name
-                  }];
+                  filterOptions[grid.columns[i].name] = filter.term;
                 }
               }
             }
