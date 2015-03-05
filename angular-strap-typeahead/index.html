@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="bower_components/angularjs/angular.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="bower_components/angular-strap/dist/modules/parse-options.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="TypeaheadController">
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label><i class="fa fa-globe"></i> State</label>
+      <input class="form-control" ng-model="selectedState" ng-options="state for state in states" placeholder="Enter state" bs-typeahead type="text">
+    </div>
+  </form>
+</body>
+</html>
