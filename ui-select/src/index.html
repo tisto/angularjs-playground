@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-select/dist/select.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/selectize/dist/css/selectize.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <script src="bower_components/angularjs/angular.min.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="SelectController">
+  <p>Selected: {{country.selected}}</p>
+  <ui-select ng-model="country.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+    <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="country in countries | filter: $select.search">
+      <span ng-bind-html="country.name | highlight: $select.search"></span>
+      <small ng-bind-html="country.code | highlight: $select.search"></small>
+    </ui-select-choices>
+  </ui-select>
+
+</body>
+</html>
