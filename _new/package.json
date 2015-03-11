@@ -1,0 +1,16 @@
+{
+  "name": "_new",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Timo Stollenwerk",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.2.3",
+    "gulp": "^3.8.11",
+    "gulp-watch": "^4.1.1"
+  }
+}
