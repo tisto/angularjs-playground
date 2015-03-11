@@ -4,7 +4,21 @@
   // --- DEPENDENCIES --------------------------------------------------------
   var gulp = require('gulp'),
       browserSync = require('browser-sync'),
+      inject = require('gulp-inject'),
       watch = require('gulp-watch');
+
+
+  // --- INDEX ---------------------------------------------------------------
+  gulp.task('index', function () {
+    var target = gulp.src('./index.html');
+    var sources = gulp.src([
+      './bower_components/angularjs/angular.js',
+      './scripts/**/*.js'
+    ], {read: false});  // Do not read the files, we're only after their paths.
+
+    target.pipe(inject(sources))
+      .pipe(gulp.dest('.'));
+  });
 
 
   // --- BROWSER SYNC --------------------------------------------------------
