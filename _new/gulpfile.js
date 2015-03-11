@@ -5,6 +5,8 @@
   var gulp = require('gulp'),
       browserSync = require('browser-sync'),
       inject = require('gulp-inject'),
+      less = require('gulp-less'),
+      sourcemaps = require('gulp-sourcemaps'),
       watch = require('gulp-watch');
 
 
@@ -13,11 +15,24 @@
     var target = gulp.src('./index.html');
     var sources = gulp.src([
       './bower_components/angularjs/angular.js',
-      './scripts/**/*.js'
+      './scripts/**/*.js',
+      './css/bootstrap.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 
     target.pipe(inject(sources))
       .pipe(gulp.dest('.'));
+  });
+
+
+  // --- LESS ----------------------------------------------------------------
+  gulp.task('less', function() {
+    gulp.src([
+      'bower_components/bootstrap/less/bootstrap.less',
+      'less/*.less'
+    ]).pipe(sourcemaps.init())
+      .pipe(less())
+      .pipe(gulp.dest('./css/'))
+      .pipe(browserSync.reload({stream:true, once: true}));
   });
 
 
@@ -46,8 +61,12 @@
   });
 
 
+  // --- BUILD ---------------------------------------------------------------
+  gulp.task('build', ['less', 'index'], function() {});
+
+
   // --- DEFAULT -------------------------------------------------------------
-  gulp.task('default', ['watch', 'browser-sync'], function() {
+  gulp.task('default', ['build', 'watch', 'browser-sync'], function() {
     gulp.watch("*.*", ['browser-sync-reload']);
   });
 
