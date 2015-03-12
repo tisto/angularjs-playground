@@ -3,18 +3,23 @@
 <head>
   <title>AngularJS: UI-Router</title>
   <meta charset="utf-8" />
-  <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/bower_components/angularjs/angular.js"></script>
+  <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/app.js"></script>
+  <!-- endinject -->
 </head>
 
 <body class="container" ng-controller="NavigationController">
 
   <div navigation-directive></div>
+  <div ui-view></div>
 
-  <div ui-view style="width: 80%; float: left;"></div>
-
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
-  <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-  <script src="app.js"></script>
 </body>
 
 </html>

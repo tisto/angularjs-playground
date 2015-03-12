@@ -1,54 +1,48 @@
-var myapp = angular.module('myapp', ['ui.router']);
+(function() {
+  'use strict';
 
-var navigation = [
-  {
-    id: 'anfragen',
-    title: 'Anfragen'
-  },
-  {
-    id: 'demographische-merkmale',
-    title: 'Demographische Merkmale'
-  },
-  {
-    id: 'marketing',
-    title: 'Marketing'
-  },
-  {
-    id: 'recherche',
-    title: 'Recherche'
-  },
-  {
-    id: 'infopaket',
-    title: 'Infopaket'
-  },
-  {
-    id: 'export',
-    title: 'Export'
-  },
-];
+  angular.module('myapp', ['ui.router']);
+
+  var navigation = [
+    {
+      id: 'page1',
+      title: 'Page 1'
+    },
+    {
+      id: 'page2',
+      title: 'Page 2'
+    },
+    {
+      id: 'page3',
+      title: 'Page 3'
+    },
+  ];
 
 
-myapp.controller('NavigationController',
-  function($scope) {
-    'use strict';
-    $scope.navigation = navigation;
-  }
-);
+  angular.module('myapp').controller('NavigationController',
+    function($scope) {
+      $scope.navigation = navigation;
+    }
+  );
 
-myapp.directive('navigationDirective',
-  function() {
-    'use strict';
-    return {
-      templateUrl: 'navigation.html'
-    };
-  }
-);
+  angular.module('myapp').directive('navigationDirective',
+    function() {
+      return {
+        templateUrl: 'navigation.html'
+      };
+    }
+  );
 
-myapp.config(function($stateProvider) {
-  angular.forEach(navigation, function(value, key){
-    $stateProvider.state(value.id, {
-      url: '/' + value.id,
-      templateUrl: value.id + '.html'
+  angular.module('myapp').config(function($urlRouterProvider, $stateProvider) {
+    angular.forEach(navigation, function(value, key){
+      $urlRouterProvider.otherwise('/page1');
+      $stateProvider
+        .state(value.id, {
+          url: '/' + value.id,
+          templateUrl: value.id + '.html'
+        });
     });
+
   });
-});
+
+})();
