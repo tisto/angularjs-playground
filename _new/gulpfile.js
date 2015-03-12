@@ -15,7 +15,9 @@
     var target = gulp.src('./index.html');
     var sources = gulp.src([
       './bower_components/angularjs/angular.js',
+      './bower_components/angular-loading-bar/build/loading-bar.js',
       './scripts/**/*.js',
+      './bower_components/angular-loading-bar/build/loading-bar.css',
       './css/bootstrap.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('myApp', []);
+  angular.module('myApp', ['angular-loading-bar']);
 
   angular.module('myApp').controller('TextController',
     function($scope) {
