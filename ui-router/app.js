@@ -3,25 +3,8 @@
 
   angular.module('myapp', ['ui.router']);
 
-  var navigation = [
-    {
-      id: 'page1',
-      title: 'Page 1'
-    },
-    {
-      id: 'page2',
-      title: 'Page 2'
-    },
-    {
-      id: 'page3',
-      title: 'Page 3'
-    },
-  ];
-
-
   angular.module('myapp').controller('NavigationController',
     function($scope) {
-      $scope.navigation = navigation;
     }
   );
 
@@ -59,7 +42,8 @@
       })
       .state('page3', {
         url: '/page3',
-        templateUrl: 'page3.html'
+        templateUrl: 'page3.html',
+        abstract: true
       })
       .state('page3.tab1', {
         url: '/tab1',
