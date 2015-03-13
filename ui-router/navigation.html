@@ -3,8 +3,10 @@
     <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
   </div>
   <ul class="nav navbar-nav">
-    <li ng-repeat="item in navigation">
+    <li ng-repeat="item in navigation" ui-sref-active="active">
       <a ui-sref="{{item.id}}">{{item.title}}</a>
     </li>
   </ul>
 </nav>
+<span>$state = <b>{{$state.current.name}}</b></span><br>
+<span>$state url = <b>{{$state.$current.url.source}}</b></span>
