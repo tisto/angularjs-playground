@@ -43,7 +43,12 @@
       .state('page3', {
         url: '/page3',
         templateUrl: 'page3.html',
-        abstract: true
+        controller: ['$scope', '$state',
+          // controller that redirects to a child state
+          function($scope, $state) {
+            $state.go('page3.tab1');
+          }
+        ],
       })
       .state('page3.tab1', {
         url: '/tab1',
