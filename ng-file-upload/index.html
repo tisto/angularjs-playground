@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <style type="text/css">
+    .button {
+        -moz-appearance: button;
+        /* Firefox */
+        -webkit-appearance: button;
+        /* Safari and Chrome */
+        padding: 10px;
+        margin: 10px;
+        width: 70px;
+    }
+    .drop-box {
+        background: #F8F8F8;
+        border: 5px dashed #DDD;
+        width: 200px;
+        height: 65px;
+        text-align: center;
+        padding-top: 25px;
+        margin: 10px;
+    }
+    .dragover {
+        border: 5px dashed blue;
+    }
+  </style>
+  <script src="bower_components/angularjs/angular.js"></script>
+  <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="FileUploadController">
+
+  <p>Username</p>
+  <input type="text" ng-model="username"></br></br>
+  <input type="checkbox" ng-model="multiple">upload multiple file</br></br>
+  watching model:
+  <div class="button" ng-file-select ng-model="files" ng-multiple="multiple">Select File</div>
+  on file change:
+  <div class="button" ng-file-select ng-file-change="upload($files)" ng-multiple="multiple">Select File</div>
+  Drop File:
+  <div ng-file-drop ng-file-select ng-model="files" class="drop-box"
+      drag-over-class="dragover" ng-multiple="true" allow-dir="true"
+      accept="image/*,application/pdf">Drop pdfs or images here or click to upload</div>
+  <div ng-no-file-drop>File Drag/Drop is not supported for this browser</div>
+  <ul>
+    <li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+  </ul>
+
+</body>
+</html>
