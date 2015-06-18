@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/bower_components/angularjs/angular.js"></script>
+  <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/app/app.js"></script>
+  <script src="/app/app.mocks.js"></script>
+  <!-- endinject -->
+</head>
+<body ng-controller="TextController">
+  <p>{{someText.message}}</p>
+  <input ng-model="jobTitle" />
+  <button ng-click="createJob(jobTitle)">Add Job</button>
+  <p>Jobs</p>
+  <ul ng-repeat="job in jobs track by $index">
+    <li>{{job.title}} <button ng-click="deleteJob(job.id)">x</button></li>
+  </ul>
+</body>
+</html>
