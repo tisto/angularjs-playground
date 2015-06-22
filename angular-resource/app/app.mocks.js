@@ -34,7 +34,7 @@
     $httpBackend.when('POST', '/api/jobs').respond(
       function(method, url, data, headers) {
         console.log('POST /api/jobs ' + data);
-        jobs.push(data);
+        jobs.push(angular.fromJson(data));
         return [201];
       }
     )

@@ -21,7 +21,7 @@
   <button ng-click="createJob(jobTitle)">Add Job</button>
   <p>Jobs</p>
   <ul ng-repeat="job in jobs track by $index">
-    <li>{{job.title}} <button ng-click="deleteJob(job.id)">x</button></li>
+    <li>{{job.title}} ({{job.id}})<button ng-click="deleteJob(job.id)">x</button></li>
   </ul>
 </body>
 </html>
