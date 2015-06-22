@@ -17,9 +17,15 @@
   <!-- endinject -->
 </head>
 <body ng-controller="JobsController">
+  <h3>New Job</h3>
+  <input ng-model="jobTitle" />
+  <button ng-click="createJob(jobTitle)">Add Job</button>
   <h3>Jobs</h3>
   <ul ng-repeat="job in jobs">
-    <li>{{job.title}} ({{job.id}})</li>
+    <li>
+      {{job.title}} ({{job.id}})
+      <button ng-click="deleteJob(job)">x</button>
+    </li>
   </ul>
 </body>
 </html>
