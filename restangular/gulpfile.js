@@ -15,6 +15,7 @@
     var target = gulp.src('./index.html');
     var sources = gulp.src([
       './bower_components/angularjs/angular.js',
+      './bower_components/angular-mocks/angular-mocks.js',
       './bower_components/angular-loading-bar/build/loading-bar.js',
       './bower_components/underscore/underscore.js',
       './bower_components/restangular/dist/restangular.js',

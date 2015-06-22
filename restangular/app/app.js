@@ -4,22 +4,11 @@
   angular.module('myApp', ['angular-loading-bar', 'restangular']);
 
   angular.module('myApp').controller('JobsController',
-    function($scope) {
-      var jobs = [
-        {
-          id: 0,
-          title: 'First Job',
-        },
-        {
-          id: 1,
-          title: 'Second Job',
-        },
-        {
-          id: 2,
-          title: 'Third Job',
-        },
-      ];
-      $scope.jobs = jobs;
+    function($scope, Restangular) {
+      var baseJobs = Restangular.all('jobs');
+      baseJobs.getList().then(function(jobs) {
+        $scope.jobs = jobs;
+      });
     }
   );
 
