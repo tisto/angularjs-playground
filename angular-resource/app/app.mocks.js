@@ -40,11 +40,12 @@
     )
 
     // READ JOB
+    /*
     $httpBackend.when('GET', '/api/jobs/1').respond(
       function(method, url, data, headers) {
         return [200, job[0]];
       }
-    );
+    );*/
 
     // UPDATE JOB
     /*
@@ -54,11 +55,12 @@
     */
 
     // DELETE JOB
-    /*
-    $httpBackend.when('DELETE', '/api/jobs/1').respond(
-      return [204, {status: 'No Content'}];
+    $httpBackend.when('DELETE', /\/api\/users(\/\d*)*/).respond(
+      function(method, url, data, headers) {
+        console.log('POST /api/jobs ' + data);
+        return [204, {status: 'No content'}];
+      }
     )
-    */
 
     // --- PASS THROUGH TEMPLATES --------------------------------------------
     var templates_re = new RegExp('.*.html$');

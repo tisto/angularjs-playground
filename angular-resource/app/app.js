@@ -36,9 +36,9 @@
       }
       $scope.updateJob = function(jobId, jobTitle) {}
       $scope.deleteJob = function(jobId) {
-        alert(jobId);
+        console.log('DELETE ' + jobId);
         Jobs.delete(jobId);
-        Jobs.listJobs();
+        //Jobs.listJobs();
       }
 
       $scope.listJobs();
