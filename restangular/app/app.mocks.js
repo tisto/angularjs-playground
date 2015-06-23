@@ -35,15 +35,10 @@
       return index;
     }
 
-    function deleteElementFromArray(myArray, myId) {
-      var index = getArrayElementById(myArray, myId);
-      delete myArray[index];
-    }
-
     // LIST JOBS
     $httpBackend.when('GET', '/jobs').respond(
       function(method, url, data, headers) {
-        console.log('GET /jobs');
+        console.log('[MOCK] GET /jobs');
         return [200, jobs];
       }
     );
@@ -51,7 +46,7 @@
     // CREATE JOB
     $httpBackend.when('POST', '/jobs').respond(
       function(method, url, data, headers) {
-        console.log('POST /jobs ' + data);
+        console.log('[MOCK] POST /jobs ' + data);
         jobs.push(angular.fromJson(data));
         return [201];
       }
@@ -79,8 +74,8 @@
         var match = jobsRegExp.exec(url);
         var jobId = parseInt(match[1]);
         var index = jobsIndexById(jobId);
-        console.log('DELETE /jobs/' + jobId);
-        delete jobs[index];
+        console.log('[MOCK] DELETE /jobs/' + jobId);
+        jobs.splice(index, 1);
         return [204, {status: 'No content'}];
       }
     )
