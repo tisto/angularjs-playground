@@ -26,6 +26,7 @@
           'id': generatedUniqueId(),
           'title': jobTitle
         });
+        $scope.jobTitle = '';
         $scope.listJobs();
       }
 
