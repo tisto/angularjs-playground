@@ -15,15 +15,11 @@
     var target = gulp.src('./index.html');
     var sources = gulp.src([
       './bower_components/angularjs/angular.js',
-      './bower_components/angular-mocks/angular-mocks.js',
       './bower_components/angular-loading-bar/build/loading-bar.js',
-      './bower_components/underscore/underscore.js',
-      './bower_components/restangular/dist/restangular.js',
+      './bower_components/angular-mocks/angular-mocks.js',
       './app/**/*.js',
       './bower_components/angular-loading-bar/build/loading-bar.css',
-      './css/bootstrap.css',
-      './bower_components/todomvc-common/base.css',
-      './bower_components/todomvc-app-css/index.css'
+      './css/bootstrap.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 
     target.pipe(inject(sources))

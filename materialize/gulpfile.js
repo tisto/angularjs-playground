@@ -18,7 +18,7 @@
       './bower_components/angular-loading-bar/build/loading-bar.js',
       './js/**/*.js',
       './bower_components/angular-loading-bar/build/loading-bar.css',
-      './css/bootstrap.css'
+      './css/style.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 
     target.pipe(inject(sources))
