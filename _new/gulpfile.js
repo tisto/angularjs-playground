@@ -16,13 +16,20 @@
     var sources = gulp.src([
       './bower_components/angularjs/angular.js',
       './bower_components/angular-loading-bar/build/loading-bar.js',
-      './scripts/**/*.js',
+      './app/**/*.js',
       './bower_components/angular-loading-bar/build/loading-bar.css',
       './css/bootstrap.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 
     target.pipe(inject(sources))
       .pipe(gulp.dest('.'));
+  });
+
+
+  // --- JAVASCRIPT ----------------------------------------------------------
+  gulp.task('js', function() {
+    gulp.src('./app/*.js')
+      .pipe(browserSync.reload({stream:true, once: true}));
   });
 
 
@@ -53,11 +60,11 @@
 
   // --- WATCH ---------------------------------------------------------------
   gulp.task('watch', function() {
-    gulp.watch('./src/less/*.less', ['styles']);
-    gulp.watch('./src/*.html', function(){
+    gulp.watch('./app/less/*.less', ['styles']);
+    gulp.watch('./app/*.html', function(){
       gulp.run('html');
     });
-    gulp.watch('./src/*.js', function(){
+    gulp.watch('./app/*.js', function(){
       gulp.run('js');
     });
   });
