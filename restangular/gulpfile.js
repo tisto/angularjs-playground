@@ -22,8 +22,6 @@
       './app/**/*.js',
       './bower_components/angular-loading-bar/build/loading-bar.css',
       './css/bootstrap.css',
-      './bower_components/todomvc-common/base.css',
-      './bower_components/todomvc-app-css/index.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 
     target.pipe(inject(sources))
