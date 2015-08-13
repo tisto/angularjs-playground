@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8" />
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/node_modules/dragular/dist/dragular.css">
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/bower_components/angularjs/angular.js"></script>
+  <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/node_modules/dragular/dist/dragular.js"></script>
+  <script src="/app/app.js"></script>
+  <!-- endinject -->
+</head>
+<body>
+  <div class='wrapper' ng-controller="Basic">
+    <div class='containerVertical'>
+      <div>Move me, but you can only drop me in one of these containers.</div>
+      <div>If you try to drop me somewhere other than these containers, I'll just come back.</div>
+      <div>Item 3.</div>
+      <div>Item 6.</div>
+    </div>
+    <div class='containerVertical'>
+      <div>You can drop me in the left container, otherwise I'll stay here.</div>
+      <div>Item 4.</div>
+      <div>Item 5.</div>
+    </div>
+</div>
+</body>
+</html>
