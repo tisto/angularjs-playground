@@ -16,17 +16,14 @@
 </head>
 <body>
   <div class='wrapper' ng-controller="Basic">
-    <div class='containerVertical'>
-      <div>Move me, but you can only drop me in one of these containers.</div>
-      <div>If you try to drop me somewhere other than these containers, I'll just come back.</div>
-      <div>Item 3.</div>
-      <div>Item 6.</div>
+    <div class='tableRow'>
+        <div class='containerVertical'>
+            <div ng-repeat="item in items1">{{item.content}}</div>
+        </div>
+        <div class='containerVertical'>
+            <div ng-repeat="item in items2">{{item.content}}</div>
+        </div>
     </div>
-    <div class='containerVertical'>
-      <div>You can drop me in the left container, otherwise I'll stay here.</div>
-      <div>Item 4.</div>
-      <div>Item 5.</div>
-    </div>
-</div>
+  </div>
 </body>
 </html>
