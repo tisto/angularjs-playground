@@ -15,14 +15,24 @@
   <!-- endinject -->
 </head>
 <body>
-  <div class='wrapper' ng-controller="Basic">
+  <div ng-controller="Basic">
     <div class='tableRow'>
-        <div class='containerVertical'>
-            <div ng-repeat="item in items1">{{item.content}}</div>
+      <div class='containerVertical'>
+        <div ng-repeat="item in items" class='exampleRow'>
+          <div class="row-handle">Row {{::$index}}</div>
+          <div class="exampleRow exampleCell containerNested">
+            <div ng-repeat="item in item.items" class="exampleCell">{{item.content}}</div>
+          </div>
         </div>
-        <div class='containerVertical'>
-            <div ng-repeat="item in items2">{{item.content}}</div>
-        </div>
+      </div>
+    </div>
+    <div class="tableRow">
+      <div class='containerVertical'>
+        <pre>
+            <div>Items:
+              <br/>{{items | json}}</div>
+        </pre>
+      </div>
     </div>
   </div>
 </body>
