@@ -15,18 +15,19 @@
   <!-- endinject -->
 </head>
 <body>
-  <div class="container" ng-controller="Basic">
-    <div class='tableRow'>
+  <div class="wrapper" ng-controller="Basic">
+    <div class='row'>
       <div class='containerVertical'>
         <div ng-repeat="item in items" class='exampleRow'>
-          <div class="row-handle">Row {{::$index}}</div>
+          <div class="row-handle">*</div>
           <div class="exampleRow exampleCell containerNested">
             <div ng-repeat="item in item.items" class="exampleCell">{{item.content}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="tableRow">
+    <!--
+    <div class="row">
       <div class='containerVertical'>
         <pre>
             <div>Items:
@@ -34,6 +35,7 @@
         </pre>
       </div>
     </div>
+    -->
   </div>
 </body>
 </html>
