@@ -62,9 +62,9 @@
 
   // --- WATCH ---------------------------------------------------------------
   gulp.task('watch', function() {
-    gulp.watch('./app/less/*.less', ['styles']);
-    gulp.watch('./app/*.html', function(){
-      gulp.run('html');
+    gulp.watch('./less/*.less', ['less']);
+    gulp.watch('./index.html', function(){
+      gulp.run('index');
     });
     gulp.watch('./app/*.js', function(){
       gulp.run('js');
