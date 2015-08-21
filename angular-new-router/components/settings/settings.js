@@ -8,8 +8,8 @@ function SettingsController($router) {
   this.router = $router;
 
   $router.config([
-    { path: '/',         redirectTo: '/welcome' },
-    { path: '/welcome',  component: 'welcome',  title:'Welcome' },
+    { path: '/',         redirectTo: '/home' },
+    { path: '/home',  component: 'home',  title:'Home' },
     { path: '/flickr',   component: 'flickr' }
   ]);
 }
