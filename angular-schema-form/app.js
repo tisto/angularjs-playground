@@ -35,6 +35,23 @@
           title: 'Title',
           type: "string",
           enum: ['dr', 'jr', 'sir', 'mrs', 'mr', 'NaN', 'dj']
+        },
+        address: {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "street": { "type": "string" },
+              "zip": { "type": "string" },
+              "phone-numbers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "title": "Phone Number"
+                }
+              }
+            }
+          }
         }
       },
       required: [
