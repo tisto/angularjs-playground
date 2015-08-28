@@ -22,7 +22,12 @@
 </head>
 <body>
   <div ng-controller="FormController" style="width: 60%; margin: 50px 20%;">
-    <form sf-schema="schema" sf-form="form" sf-model="model"></form>
+    <form sf-schema="schema"
+          sf-form="form"
+          sf-model="model"
+          ng-submit="onSubmit(myForm)"></form>
+    <h3>Model</h3>
+    <pre>{{model}}</pre>
   </div>
 </body>
 </html>
