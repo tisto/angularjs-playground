@@ -11,30 +11,46 @@
           type: "string",
           minLength: 2,
           title: "Fullname",
-          description: "Fullname"
+          description: "Fullname",
+          "x-schema-form": {
+            type: "string",
+            placeholder: "John Doe"
+          }
         },
         email: {
           title: "Email",
           type: "string",
           pattern: "^\\S+@\\S+$",
-          description: "Email will be used for evil."
+          description: "Email will be used for evil.",
+          "x-schema-form": {
+            type: "string",
+            placeholder: "john@doe.com"
+          }
         },
         spam: {
           title: "Spam me, please",
           type: "boolean"
         },
         title: {
+          title: 'Title',
           type: "string",
           enum: ['dr', 'jr', 'sir', 'mrs', 'mr', 'NaN', 'dj']
         }
       },
       required: [
-        'name'
+        'name',
+        'email'
       ],
     };
 
     $scope.form = [
       "*",
+      {
+        type: "button",
+        title: "Cancel",
+        style: 'btn-default',
+        onClick: "clearForm(form)"
+      },
       {
         type: "submit",
         title: "Save"
@@ -49,9 +65,15 @@
 
       // Then we check if the form is valid
       if (form.$valid) {
-        console.log('check if form is valid')
+        console.log('check if form is valid');
       }
     }
+
+    $scope.clearForm = function(form) {
+      $scope.model = {};
+      $scope.$broadcast('schemaFormRedraw');
+    }
+
   });
 
 })();
