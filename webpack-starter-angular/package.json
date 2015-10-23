@@ -1,7 +1,7 @@
 {
-  "name": "bundle_example",
+  "name": "webpack-starter-angular",
   "version": "1.0.0",
-  "description": "An example of how to use npm and webpack to bundle",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --content-base public/",
@@ -15,7 +15,7 @@
     "webpack",
     "npm"
   ],
-  "author": "Martijn Faassen",
+  "author": "Timo Stollenwerk",
   "license": "MIT",
   "devDependencies": {
     "babel-loader": "^5.3.2",
