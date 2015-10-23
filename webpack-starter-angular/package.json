@@ -2,7 +2,7 @@
   "name": "webpack-starter-angular",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --content-base public/",
     "build": "webpack",
