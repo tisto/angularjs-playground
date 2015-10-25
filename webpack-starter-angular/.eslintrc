@@ -1,4 +1,6 @@
 {
+    "plugins": [angular],
+    "extends": angular,
     "rules": {
         "indent": [
             2,
@@ -23,6 +25,14 @@
     },
     "ecmaFeatures": {
         "modules": true
+    },
+    "globals" : {
+      "describe"   : false,
+      "it"         : false,
+      "before"     : false,
+      "beforeEach" : false,
+      "after"      : false,
+      "afterEach"  : false
     },
     "extends": "eslint:recommended"
 }
