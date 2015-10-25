@@ -1,6 +1,20 @@
 Webpack Starter Angular
 =======================
 
+Requirements
+------------
+
+- DONE: ES 6 with Angular 1.4
+- Bundling and splitting
+- DONE: SASS support
+- SASS variables
+- Router
+  - DONE: Angular UI Router
+  - Angular New Router
+- DONE: Self-registering components
+- DONE: Jade support
+
+
 Prerequisits
 ------------
 
