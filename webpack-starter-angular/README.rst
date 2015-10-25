@@ -91,4 +91,5 @@ Jade (hero.jade)::
 Sources
 -------
 
-- https://github.com/angular-class/NG6-starter
+- Webpack: https://github.com/faassen/bundle_example
+- Angular: https://github.com/angular-class/NG6-starter
