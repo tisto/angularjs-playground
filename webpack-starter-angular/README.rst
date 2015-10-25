@@ -5,7 +5,9 @@ Requirements
 ------------
 
 - DONE: ES 6 with Angular 1.4
-- Bundling and splitting
+- DONE: Bundling
+- Splitting large files
+- Delivering static files separately
 - DONE: SASS support
 - SASS variables
 - Router
