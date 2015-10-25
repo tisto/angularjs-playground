@@ -22,6 +22,11 @@ Start the Webpack development server on 'localhost:3000'::
 
   $ npm run dev
 
+Run tests::
+
+  $ npm run test
+
+
 Sources
 -------
 
