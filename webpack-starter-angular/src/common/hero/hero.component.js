@@ -1,4 +1,4 @@
-import template from './hero.html';
+import template from './hero.jade';
 import controller from './hero.controller';
 
 let heroComponent = function () {

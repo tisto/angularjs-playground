@@ -13,6 +13,7 @@ module.exports = {
       { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.scss$/, loaders: ["style", "css?sourceMap", "sass?sourceMap"]},
       { test: /\.html$/, loader: 'raw' },
+      { test: /\.jade$/, loader: 'jade-loader' },
       // inline base64 URLs for <=8k images, direct URLs for the rest
       { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
       // helps to load bootstrap's css.
