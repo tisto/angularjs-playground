@@ -21,3 +21,8 @@ Create a JS bundle with Webpack:
 Start the Webpack development server on 'localhost:3000':
 
   $ npm run dev
+
+Sources
+-------
+
+- https://github.com/angular-class/NG6-starter
