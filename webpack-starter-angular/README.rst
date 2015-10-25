@@ -4,17 +4,27 @@ Webpack Starter Angular
 Requirements
 ------------
 
+ToDo:
+
+- Splitting large files
+- SASS variables
+- Angular New Router -> http://www.heise.de/developer/artikel/AngularJS-1-x-und-2-0-mit-dem-Component-Router-parallel-betreiben-2679282.html
+
+Done:
+
 - DONE: ES 6 with Angular 1.4
 - DONE: Bundling
-- Splitting large files
 - DONE: Delivering static files separately -> Possible via https://webpack.github.io/docs/stylesheets.html#separate-css-bundle
 - DONE: SASS support
-- SASS variables
 - Router
   - DONE: Angular UI Router
-  - Angular New Router
 - DONE: Self-registering components
 - DONE: Jade support
+
+Planed:
+
+- ES7 Decorators (@Component())
+- Typescript?
 
 
 Prerequisits
