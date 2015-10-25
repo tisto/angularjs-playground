@@ -7,7 +7,7 @@ Requirements
 - DONE: ES 6 with Angular 1.4
 - DONE: Bundling
 - Splitting large files
-- Delivering static files separately
+- DONE: Delivering static files separately -> Possible via https://webpack.github.io/docs/stylesheets.html#separate-css-bundle
 - DONE: SASS support
 - SASS variables
 - Router
@@ -25,6 +25,7 @@ Install a few dependencies globally::
   $ npm install -g babel
   $ npm install -g webpack
   $ npm install -g webpack-dev-server
+  $ npm install -g eslint
 
 
 Development
@@ -41,6 +42,10 @@ Start the Webpack development server on 'localhost:3000'::
 Run tests::
 
   $ npm run test
+
+Linting::
+
+  $ npm run lint
 
 
 Jade Loader
