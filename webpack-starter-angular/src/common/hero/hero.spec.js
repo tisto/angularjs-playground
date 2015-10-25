@@ -1,7 +1,7 @@
 import HeroModule from './hero'
 import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
-import HeroTemplate from './hero.html';
+import HeroTemplate from './hero.jade';
 
 describe('Hero', () => {
   let $rootScope, makeController;
