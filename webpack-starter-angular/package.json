@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --inline --content-base public/",
     "build": "webpack",
     "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "keywords": [
     "bundle",
@@ -18,9 +18,18 @@
   "author": "Timo Stollenwerk",
   "license": "MIT",
   "devDependencies": {
+    "angular-mocks": "^1.4.7",
     "babel-loader": "^5.3.2",
     "css-loader": "^0.21.0",
     "file-loader": "^0.8.4",
+    "karma": "^0.13.9",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.4",
+    "karma-webpack": "^1.5.1",
+    "mocha": "^2.3.0",
     "node-sass": "^3.3.3",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.0.0",
