@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --content-base public/",
+    "dev": "webpack-dev-server --inline --port 3000 --content-base public/",
     "build": "webpack",
     "lint": "eslint",
     "test": "karma start"
