@@ -4,7 +4,7 @@ Webpack Starter Angular
 Prerequisits
 ------------
 
-Install a few dependencies globally:
+Install a few dependencies globally::
 
   $ npm install -g babel
   $ npm install -g webpack
@@ -14,11 +14,11 @@ Install a few dependencies globally:
 Development
 -----------
 
-Create a JS bundle with Webpack:
+Create a JS bundle with Webpack::
 
   $ npm run build
 
-Start the Webpack development server on 'localhost:3000':
+Start the Webpack development server on 'localhost:3000'::
 
   $ npm run dev
 
