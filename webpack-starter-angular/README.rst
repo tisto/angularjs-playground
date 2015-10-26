@@ -11,7 +11,10 @@ Stack
 - ES 6 / Babel (Module Loading)
 - SASS
 - Jade
-⁻ Tests: Karma, Mocha, Chai
+- Tests
+  - Karma (Test Runner, http://karma-runner.github.io/)
+  - Mocha (Test Framework, http://mochajs.org/)
+  - Chai (BDD/TSS assertion library, http://chaijs.com/)
 
 
 Requirements
