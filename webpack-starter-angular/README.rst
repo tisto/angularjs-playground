@@ -8,9 +8,10 @@ Stack
 - Webpack
 - Angular 1.4
 - Angular UI Router (with self-registering components)
-- ES 6 Module Loading
+- ES 6 / Babel (Module Loading)
 - SASS
 - Jade
+⁻ Tests: Karma, Mocha, Chai
 
 
 Requirements
@@ -67,6 +68,37 @@ Run tests::
 Linting::
 
   $ npm run lint
+
+
+SASS Loader
+-----------
+
+Installation::
+
+  $ npm install sass-loader --save-dev
+
+Webpack Configuration (webpack.config.js)::
+
+  module.exports = {
+    ...
+    module: {
+      loaders: [
+        ...
+        { test: /\.scss$/, loaders: ["style", "css?sourceMap", "sass?sourceMap"]},
+      ]
+    },
+    devtool: 'source-map'
+  }
+
+Javascript::
+
+  import Styles from './styles.scss';
+
+SASS (styles.scss)::
+
+  body {
+      padding-top: 80px;
+  }
 
 
 Jade Loader
