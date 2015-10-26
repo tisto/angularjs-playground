@@ -7,7 +7,6 @@ Requirements
 ToDo:
 
 - SASS variables
-- Splitting large files -> https://webpack.github.io/docs/code-splitting.html
 - Angular New Router -> http://www.heise.de/developer/artikel/AngularJS-1-x-und-2-0-mit-dem-Component-Router-parallel-betreiben-2679282.html
 
 Done:
@@ -15,9 +14,9 @@ Done:
 - DONE: ES 6 with Angular 1.4
 - DONE: Bundling
 - DONE: Delivering static files separately -> Possible via https://webpack.github.io/docs/stylesheets.html#separate-css-bundle
+- DONE: Splitting large files -> Possible via https://webpack.github.io/docs/code-splitting.html
 - DONE: SASS support
-- Router
-  - DONE: Angular UI Router
+- DONE: Angular UI Router
 - DONE: Self-registering components
 - DONE: Jade support
 
