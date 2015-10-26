@@ -1,6 +1,18 @@
 Webpack Starter Angular
 =======================
 
+Stack
+-----
+
+- NPM
+- Webpack
+- Angular 1.4
+- Angular UI Router (with self-registering components)
+- ES 6 Module Loading
+- SASS
+- Jade
+
+
 Requirements
 ------------
 
