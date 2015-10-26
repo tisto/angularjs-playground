@@ -6,8 +6,8 @@ Requirements
 
 ToDo:
 
-- Splitting large files
 - SASS variables
+- Splitting large files -> https://webpack.github.io/docs/code-splitting.html
 - Angular New Router -> http://www.heise.de/developer/artikel/AngularJS-1-x-und-2-0-mit-dem-Component-Router-parallel-betreiben-2679282.html
 
 Done:
