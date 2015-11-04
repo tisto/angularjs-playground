@@ -38,14 +38,19 @@
     "node-sass": "^3.3.3",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.0.0",
+    "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2"
   },
   "dependencies": {
     "angular": "^1.4.4",
+    "angular-sanitize": "^1.4.7",
+    "angular-schema-form": "^0.8.12",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.5",
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "objectpath": "^1.2.1",
+    "tv4": "^1.2.7"
   }
 }

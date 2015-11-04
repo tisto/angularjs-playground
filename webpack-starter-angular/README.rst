@@ -73,6 +73,37 @@ Linting::
   $ npm run lint
 
 
+ES 6 Imports
+------------
+
+Default import::
+
+  import localName from 'src/my_lib';
+
+Namespace import: imports the module as an object (with one property per named export)::
+
+  import * as my_lib from 'src/my_lib';
+
+Named imports::
+
+  import { name1, name2 } from 'src/my_lib';
+
+Renaming named imports::
+
+  // Renaming: import `name1` as `localName1`
+  import { name1 as localName1, name2 } from 'src/my_lib';
+Empty import: only loads the module, doesn’t import anything. The first such import in a program executes the body of the module.
+  import 'src/my_lib';
+
+Source: http://exploringjs.com/es6/ch_modules.html
+
+Imports for broken modules::
+
+  require('script!objectpath/lib/ObjectPath');
+
+Source: https://webpack.github.io/docs/shimming-modules.html
+
+
 SASS Loader
 -----------
 
@@ -132,6 +163,34 @@ Jade (hero.jade)::
   div.jumbotron
     h1 Angular, ES6, Webpack Starter!
     h3 You can find my template inside {{ vm.name }}.html
+
+
+Angular Schema Form
+-------------------
+
+Installation::
+
+  $ npm install angular-schema-form --save
+  $ npm install objectpath --save
+  $ npm install tv4 --save
+  $ npm install angular-sanitize --save
+
+Javascript::
+
+  import ngSanitize from 'angular-sanitize';
+  import tv4 from 'tv4/tv4.js';
+  require('script!objectpath/lib/ObjectPath');
+  require('script!angular-schema-form/dist/schema-form');
+  require('script!angular-schema-form/dist/bootstrap-decorator');
+
+  let contactFormModule = angular.module('contactForm', [
+    uiRouter,
+    schemaForm.name
+  ])
+
+  ...
+
+
 
 
 Sources

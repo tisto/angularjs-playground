@@ -1,3 +1,11 @@
 h2 Contact Form
-div Here comes the form...
-div {{ vm.form }}
+form(sf-schema='vm.schema', sf-form='vm.form', sf-model='vm.model')
+
+h3 Schema
+pre {{vm.schema | json}}
+
+h3 Form
+pre {{vm.form | json}}
+
+h3 Model
+pre {{vm.model | json}}
