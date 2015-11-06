@@ -1,8 +1,8 @@
 {
-  "name": "webpack-starter-angular",
+  "name": "angularjs-playground",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --port 3000 --content-base public/",
     "build": "webpack",
@@ -48,6 +48,7 @@
     "angular-confirm": "^1.1.2",
     "angular-sanitize": "^1.4.7",
     "angular-schema-form": "^0.8.12",
+    "angular-strap": "^2.3.5",
     "angular-ui-bootstrap": "^0.14.3",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.5",
