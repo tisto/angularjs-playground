@@ -45,7 +45,9 @@
   },
   "dependencies": {
     "angular": "^1.4.4",
+    "angular-animate": "^1.4.7",
     "angular-confirm": "^1.1.2",
+    "angular-motion": "^0.4.3",
     "angular-sanitize": "^1.4.7",
     "angular-schema-form": "^0.8.12",
     "angular-strap": "^2.3.5",
