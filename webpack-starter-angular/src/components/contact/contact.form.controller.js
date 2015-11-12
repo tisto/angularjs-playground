@@ -1,5 +1,5 @@
 class ContactFormController {
-  constructor() {
+  constructor($scope) {
     this.name = 'Contact Us'
     this.model = {};
     this.schema = {
@@ -10,7 +10,10 @@ class ContactFormController {
           type: "string",
           enum: ['dr','jr','sir','mrs','mr','NaN','dj']
         }
-      }
+      },
+      "required": [
+        "name",
+      ]
     };
     this.form = [
       "*",
@@ -19,6 +22,18 @@ class ContactFormController {
         title: "Save"
       }
     ];
+
+    this.onSubmit = function(form) {
+      // First we broadcast an event so all fields validate themselves
+      $scope.$broadcast('schemaFormValidate');
+
+      // Then we check if the form is valid
+      if (form.$valid) {
+        console.log('form is valid')
+      } else {
+        console.log('form is invalid')
+      }
+    }
   }
 }
 

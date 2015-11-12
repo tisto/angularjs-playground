@@ -1,5 +1,5 @@
 h2 Contact Form
-form(sf-schema='vm.schema', sf-form='vm.form', sf-model='vm.model')
+form(name='form' sf-schema='vm.schema', sf-form='vm.form', sf-model='vm.model', ng-submit="vm.onSubmit(form)")
 
 h3 Schema
 pre {{vm.schema | json}}
