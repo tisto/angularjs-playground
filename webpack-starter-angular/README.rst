@@ -198,3 +198,4 @@ Sources
 
 - Webpack: https://github.com/faassen/bundle_example
 - Angular: https://github.com/angular-class/NG6-starter
+- Angular: http://angular-tips.com/blog/2015/06/using-angular-1-dot-x-with-es6-and-webpack/

@@ -1,0 +1,8 @@
+<navbar></navbar>
+<h1>You can find my template inside {{ vm.name }}.html</h1>
+<section>
+  <label>Github Username</label>
+  <input ng-model="vm.githubUsername" />
+  <button ng-click="vm.getDetails()">Details</button>
+  <pre>{{vm.result | json}}</pre>
+</section>
