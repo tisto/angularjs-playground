@@ -4,5 +4,11 @@
   <label>Github Username</label>
   <input ng-model="vm.githubUsername" />
   <button ng-click="vm.getDetails()">Details</button>
+  <ul>
+    <li>Name: {{vm.result.data.name}}</li>
+    <li>Company: {{vm.result.data.company}}</li>
+    <li>Location: {{vm.result.data.location}}</li>
+    <li>Email: {{vm.result.data.email}}</li>
+  </ul>
   <pre>{{vm.result | json}}</pre>
 </section>
