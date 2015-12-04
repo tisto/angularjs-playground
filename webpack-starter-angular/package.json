@@ -45,7 +45,6 @@
   },
   "dependencies": {
     "angular": "^1.4.4",
-    "angular-confirm": "^1.1.2",
     "angular-sanitize": "^1.4.7",
     "angular-schema-form": "^0.8.12",
     "angular-ui-bootstrap": "^0.14.3",
