@@ -1,5 +1,3 @@
-import service from './github.service';
-
 class GithubService {
 
   constructor($http) {
