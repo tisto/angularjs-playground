@@ -48,7 +48,7 @@ for output_format in output_formats:
             '-dDownScaleFactor={}'.format(downscale_factor),
             '-dDOINTERPOLATE',
             '-dLastPage=1',
-            '-o {}'.format(output_filename),
+            '-o{}'.format(output_filename),
             '-r{}x'.format(resolution),
             input_filename
         ])
