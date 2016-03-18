@@ -12,7 +12,7 @@ class PdfViewerController {
     this.name = 'PDF Viewer';
     this.preview = png1;
     this.slides = [
-      png1, png2, png3, png4, png5
+      png1, png2, png3, png4, png5, png6, png7
     ];
     this.currentIndex = 0;
 
@@ -31,8 +31,6 @@ class PdfViewerController {
     this.nextSlide = function () {
       this.currentIndex = (this.currentIndex > 0) ? --this.currentIndex : this.slides.length - 1;
     };
-
-    this.pdfUrl = 'test.pdf';
 
   }
 
