@@ -1,18 +1,18 @@
-import gif1 from './images/test_1.gif';
-import gif2 from './images/test_2.gif';
-import gif3 from './images/test_3.gif';
-import gif4 from './images/test_4.gif';
-import gif5 from './images/test_5.gif';
-import gif6 from './images/test_6.gif';
-import gif7 from './images/test_7.gif';
+import png1 from './images/output-1.png';
+import png2 from './images/output-2.png';
+import png3 from './images/output-3.png';
+import png4 from './images/output-4.png';
+import png5 from './images/output-5.png';
+import png6 from './images/output-6.png';
+import png7 from './images/output-7.png';
 
 
 class PdfViewerController {
   constructor() {
     this.name = 'PDF Viewer';
-    this.preview = gif1;
+    this.preview = png1;
     this.slides = [
-      gif1, gif2, gif3, gif4, gif5
+      png1, png2, png3, png4, png5
     ];
     this.currentIndex = 0;
 
@@ -32,7 +32,7 @@ class PdfViewerController {
       this.currentIndex = (this.currentIndex > 0) ? --this.currentIndex : this.slides.length - 1;
     };
 
-    this.pdfUrl = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/149125/material-design-2.pdf';
+    this.pdfUrl = 'test.pdf';
 
   }
 
