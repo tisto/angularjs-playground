@@ -36,12 +36,41 @@ class PdfViewerController {
     // embed
     this.goToPage = function(page) {
       // this works only in firefox
-      $('#embed').src = "test.pdf#page=" + page;
+      $('#embed').src = 'test.pdf#page=' + page;
       // replace the entire tag for other browsers
       $('#embed').replaceWith('<embed id="embed" src="test.pdf#page=' + page + '" width="800px" height="500px" type="application/pdf">');
     };
 
-    this.annotations = [];
+    this.annotations = [
+      {
+        'text': 'Anmerkungen zu Seite eins.',
+        'flag': true
+      },
+      {
+        'text': '',
+        'flag': false
+      },
+      {
+        'text': '',
+        'flag': false
+      },
+      {
+        'text': 'Anmerkungen zu Seite vier.',
+        'flag': false
+      },
+      {
+        'text': '',
+        'flag': false
+      },
+      {
+        'text': 'Anmerkungen zu Seite sechs.',
+        'flag': false
+      },
+      {
+        'text': 'Anmerkungen zu Seite sieben.',
+        'flag': false
+      }
+    ];
 
   }
 
