@@ -5,6 +5,7 @@ import png4 from './images/output-4.png';
 import png5 from './images/output-5.png';
 import png6 from './images/output-6.png';
 import png7 from './images/output-7.png';
+import $ from 'jquery';
 
 
 class PdfViewerController {
@@ -31,6 +32,16 @@ class PdfViewerController {
     this.nextSlide = function () {
       this.currentIndex = (this.currentIndex > 0) ? --this.currentIndex : this.slides.length - 1;
     };
+
+    // embed
+    this.goToPage = function(page) {
+      // this works only in firefox
+      $('#embed').src = "test.pdf#page=" + page;
+      // replace the entire tag for other browsers
+      $('#embed').replaceWith('<embed id="embed" src="test.pdf#page=' + page + '" width="800px" height="500px" type="application/pdf">');
+    };
+
+    this.annotations = [];
 
   }
 

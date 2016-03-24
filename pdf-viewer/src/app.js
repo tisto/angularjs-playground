@@ -1,5 +1,6 @@
 import angular from 'angular';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
 
 // import 'angular-mocks/angular-mocks';
 import pdfViewerComponent from './component';

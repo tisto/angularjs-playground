@@ -14,7 +14,27 @@
 </div>
 
 <h3>Embed (HTML Standard Markup)</h3>
-<embed src="test.pdf" width="800px" height="500px" type='application/pdf'>
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group" role="group">
+    <button type="button" ng-click="vm.goToPage(1)" class="btn btn-default">1</button>
+    <button type="button" ng-click="vm.goToPage(2)" class="btn btn-default">2</button>
+    <button type="button" ng-click="vm.goToPage(3)" class="btn btn-default">3</button>
+    <button type="button" ng-click="vm.goToPage(4)" class="btn btn-default">4</button>
+    <button type="button" ng-click="vm.goToPage(5)" class="btn btn-default">5</button>
+    <button type="button" ng-click="vm.goToPage(6)" class="btn btn-default">6</button>
+    <button type="button" ng-click="vm.goToPage(7)" class="btn btn-default">7</button>
+  </div>
+</div>
+<div style="width: 800px;">
+  <embed id="embed"
+         src="test.pdf#page=2"
+         width="800px"
+         height="500px"
+         type='application/pdf'>
+</div>
+
+
+<div style="clear: both;"></div>
 
 <h3>PDFjs (Mozilla: + 1.3 MB)</h3>
 <div style="width: 700px; height: 500px;">
