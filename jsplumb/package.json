@@ -10,6 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^1.8.0",
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "jquery": "^1.9.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "raw-loader": "^0.5.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
